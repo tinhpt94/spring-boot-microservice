@@ -9,7 +9,7 @@ databaseChangeLog:
         columns:
         - column:
             name: id
-            value: 13
+            value: 1
         - column:
             name: name
             value: ADMIN
@@ -22,7 +22,7 @@ databaseChangeLog:
         columns:
         - column:
             name: id
-            value: 14
+            value: 2
         - column:
             name: name
             value: User
@@ -42,7 +42,7 @@ databaseChangeLog:
         columns:
         - column:
             name: id
-            value: 12
+            value: 3
         - column:
             name: username
             value: lan
@@ -51,7 +51,7 @@ databaseChangeLog:
             value: $2b$10$VNFeIZzR7.Nsa33izqNKqelqI5piMtPfJOF2uJYmodvIJZRxzjh5W
         - column:
             name: role_id
-            value: 13
+            value: 1
         - column:
             name: created_by
             value: administrator
@@ -60,3 +60,31 @@ databaseChangeLog:
             value: now()
         schemaName: public
         tableName: users
+- changeSet:
+      id: 10020191122-7
+      author: tinh
+      comment: Insert Administrator user
+      runOnChange: true
+      changes:
+          - insert:
+                columns:
+                    - column:
+                          name: id
+                          value: 4
+                    - column:
+                          name: username
+                          value: lan@crystal-holiday.com
+                    - column:
+                          name: encrypted_password
+                          value: $2b$10$VNFeIZzR7.Nsa33izqNKqelqI5piMtPfJOF2uJYmodvIJZRxzjh5W
+                    - column:
+                          name: role_id
+                          value: 1
+                    - column:
+                          name: created_by
+                          value: administrator
+                    - column:
+                          name: created_on
+                          value: now()
+                schemaName: public
+                tableName: users
