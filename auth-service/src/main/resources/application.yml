@@ -30,3 +30,5 @@ spring:
     open-in-view: false
 server:
   port: 9100
+  servlet:
+    context-path: /auth

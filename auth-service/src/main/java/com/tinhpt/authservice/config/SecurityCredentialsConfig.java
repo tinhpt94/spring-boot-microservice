@@ -1,6 +1,7 @@
 package com.tinhpt.authservice.config;
 
 import com.tinhpt.common.security.JwtConfig;
+import com.tinhpt.common.security.JwtTokenAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +28,14 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        final String[] REQUEST_WHITE_LIST = new String[]{
+                "/swagger-resources/**",
+                "/webjars/**",
+                "/configuration/**",
+                "/v2/api-docs",
+                "favicon.ico",
+                "/swagger-ui.html/**"
+        };
         http
                 .csrf().disable()
                 // make sure we use stateless session; session won't be used to store user's state.
@@ -36,7 +45,10 @@ public class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint((req, rsp, e) -> rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
                 .and()
                 // Add a filter to validate user credentials and add token in the response header
-
+                .authorizeRequests()
+                .antMatchers(REQUEST_WHITE_LIST)
+                .permitAll()
+                .and()
                 // What's the authenticationManager()?
                 // An object provided by WebSecurityConfigurerAdapter, used to authenticate the user passing user's credentials
                 // The filter needs this auth manager to authenticate the user.
