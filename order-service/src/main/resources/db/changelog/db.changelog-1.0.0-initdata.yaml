@@ -1,0 +1,283 @@
+databaseChangeLog:
+  - changeSet:
+      id: 10020191126-9
+      author: tinh
+      comment: Insert Customer
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 1
+            - column:
+                name: name
+                value: Phạm Trung Tính
+            - column:
+                name: phone
+                value: 0972426521
+            - column:
+                name: address1
+                value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
+            - column:
+                name: address2
+                value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
+            - column:
+                name: sale_id
+                value: 11
+            - column:
+                name: sale_admin_id
+                value: 12
+            - column:
+                name: sale_manager_id
+                value: 13
+            tableName: customer
+            schemaName: public
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 2
+            - column:
+                name: name
+                value: Cao Thị Lan
+            - column:
+                name: phone
+                value: 0968785313
+            - column:
+                name: address1
+                value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
+            - column:
+                name: address2
+                value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
+            - column:
+                name: sale_id
+                value: 11
+            - column:
+                name: sale_admin_id
+                value: 12
+            - column:
+                name: sale_manager_id
+                value: 13
+            tableName: customer
+            schemaName: public
+  - changeSet:
+      id: 10020191126-10
+      author: tinh
+      comment: Insert Order
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 3
+            - column:
+                name: order_date
+                value: now()
+            - column:
+                name: status
+                value: SUCCESS
+            - column:
+                name: customer_id
+                value: 1
+            schemaName: public
+            tableName: order
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 4
+            - column:
+                name: order_date
+                value: now()
+            - column:
+                name: status
+                value: PENDING
+            - column:
+                name: customer_id
+                value: 1
+            schemaName: public
+            tableName: order
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 5
+            - column:
+                name: order_date
+                value: now()
+            - column:
+                name: status
+                value: SUCCESS
+            - column:
+                name: customer_id
+                value: 2
+            schemaName: public
+            tableName: order
+  - changeSet:
+      id: 10020191126-11
+      author: tinh
+      comment: Insert Order Detail
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 6
+            - column:
+                name: deposit_date
+                value: now()
+            - column:
+                name: contract_value
+                value: 300000000
+            - column:
+                name: contract_value_vat
+                value: 330000000
+            - column:
+                name: order_id
+                value: 3
+            - column:
+                name: product_id
+                value: 1
+            schemaName: public
+            tableName: order_detail
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 7
+            - column:
+                name: deposit_date
+                value: now()
+            - column:
+                name: contract_value
+                value: 200000000
+            - column:
+                name: contract_value_vat
+                value: 220000000
+            - column:
+                name: order_id
+                value: 3
+            - column:
+                name: product_id
+                value: 2
+            schemaName: public
+            tableName: order_detail
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 8
+            - column:
+                name: deposit_date
+                value: now()
+            - column:
+                name: contract_value
+                value: 100000000
+            - column:
+                name: contract_value_vat
+                value: 110000000
+            - column:
+                name: order_id
+                value: 4
+            - column:
+                name: product_id
+                value: 1
+            schemaName: public
+            tableName: order_detail
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 9
+            - column:
+                name: deposit_date
+                value: now()
+            - column:
+                name: contract_value
+                value: 400000000
+            - column:
+                name: contract_value_vat
+                value: 440000000
+            - column:
+                name: order_id
+                value: 5
+            - column:
+                name: product_id
+                value: 2
+            schemaName: public
+            tableName: order_detail
+  - changeSet:
+      id: 10020191126-12
+      author: tinh
+      comment: Insert Payment Histories
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 10
+            - column:
+                name: date
+                value: now()
+            - column:
+                name: value
+                value: 20000000
+            - column:
+                name: value_vat
+                value: 22000000
+            - column:
+                name: order_detail_id
+                value: 6
+            - column:
+                name: type
+                value: CASH
+            schemaName: public
+            tableName: payment_history
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 11
+            - column:
+                name: date
+                value: now()
+            - column:
+                name: value
+                value: 50000000
+            - column:
+                name: value_vat
+                value: 55000000
+            - column:
+                name: order_detail_id
+                value: 6
+            - column:
+                name: type
+                value: Credit Card
+            schemaName: public
+            tableName: payment_history
+        - insert:
+            columns:
+            - column:
+                name: id
+                value: 12
+            - column:
+                name: date
+                value: now()
+            - column:
+                name: value
+                value: 30000000
+            - column:
+                name: value_vat
+                value: 33000000
+            - column:
+                name: order_detail_id
+                value: 9
+            - column:
+                name: type
+                value: ATM
+            schemaName: public
+            tableName: payment_history

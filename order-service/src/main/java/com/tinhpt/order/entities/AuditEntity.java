@@ -1,4 +1,4 @@
-package com.tinhpt.hr.entities;
+package com.tinhpt.order.entities;
 
 import com.tinhpt.common.utils.AuditHelper;
 import lombok.Data;

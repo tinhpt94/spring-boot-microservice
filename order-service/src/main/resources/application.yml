@@ -1,16 +1,11 @@
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
-
 spring:
   application:
-    name: hr-service
+    name: order-service
   datasource:
     driverClassName: org.postgresql.Driver
     username: postgres
     password: postgres
-    url: jdbc:postgresql://localhost:5432/human_resource
+    url: jdbc:postgresql://localhost:5432/order_history
     hikari:
       connectionTimeout: 300000   # 3 minutes
 
@@ -28,15 +23,9 @@ spring:
       dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     open-in-view: false
-  servlet:
-    multipart:
-      enabled: true
-      file-size-threshold: 2KB
-      max-file-size: 200MB
-      max-request-size: 215MB
 server:
-  port: 9300
-
-file:
-  upload:
-    folder: C:/Users/tp674035/Documents/Development/spring-boot-microservice/hr-service
+  port: 8200
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

@@ -10,7 +10,7 @@ spring:
     driverClassName: org.postgresql.Driver
     username: postgres
     password: postgres
-    url: jdbc:postgresql://localhost:5432/crystal_commission
+    url: jdbc:postgresql://localhost:5432/human_resource
     hikari:
       connectionTimeout: 300000   # 3 minutes
 

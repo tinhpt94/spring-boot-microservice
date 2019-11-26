@@ -1,12 +1,13 @@
 package com.tinhpt.hr.services;
 
+import com.tinhpt.common.utils.AuditHelper;
 import com.tinhpt.hr.controllers.EmployeeCreateRequest;
 import com.tinhpt.hr.controllers.EmployeeResponse;
 import com.tinhpt.hr.entities.EmployeeEntity;
 import com.tinhpt.hr.entities.RoleEntity;
 import com.tinhpt.hr.repositories.EmployeeDao;
 import com.tinhpt.hr.repositories.RoleDao;
-import com.tinhpt.hr.utils.AuditHelper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,11 @@ public class EmployeeService implements IEmployeeService {
         return convertEntityToDetailResponse(employeeEntity);
     }
 
+    @Override
+    public EmployeeResponse findById(Long id) {
+        EmployeeEntity employeeEntity = employeeDao.findById(id).orElseThrow(() -> new RuntimeException("Cannot find employee with id=" + id));
+        return convertEntityToDetailResponse(employeeEntity);
+    }
 
     private EmployeeEntity mapModelToEmployeeEntity(EmployeeCreateRequest createRequest, String imageUrl) {
         EmployeeEntity employeeEntity = new EmployeeEntity();
@@ -55,12 +61,11 @@ public class EmployeeService implements IEmployeeService {
         return employeeEntity;
     }
 
+
+
     private EmployeeResponse convertEntityToDetailResponse(EmployeeEntity employeeEntity) {
         EmployeeResponse response = new EmployeeResponse();
-        response.setAddress(employeeEntity.getAddress());
-        response.setImageUrl(employeeEntity.getImageUrl());
-        response.setName(employeeEntity.getName());
-        response.setUsername(employeeEntity.getUsername());
+        BeanUtils.copyProperties(employeeEntity, response);
         response.setRole(employeeEntity.getRole().getName());
         response.setJobTitle(employeeEntity.getRole().getJobTitle());
         return response;
