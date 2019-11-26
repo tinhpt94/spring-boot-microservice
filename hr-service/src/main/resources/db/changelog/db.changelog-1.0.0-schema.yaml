@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 10020191122-1
+      id: 10020191125-1
       author: tinh
       runOnChange: true
       changes:
@@ -12,7 +12,7 @@ databaseChangeLog:
             schemaName: public
             sequenceName: hibernate_sequence
   - changeSet:
-      id: 10020191122-2
+      id: 10020191125-2
       author: tinh
       runOnChange: true
       changes:
@@ -21,7 +21,7 @@ databaseChangeLog:
               - column:
                   constraints:
                     primaryKey: true
-                    primaryKeyName: users_pkey
+                    primaryKeyName: employee_pkey
                   name: id
                   type: BIGINT
               - column:
@@ -37,66 +37,7 @@ databaseChangeLog:
                   name: role_id
                   type: BIGINT
               - column:
-                  name: created_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: created_by
-                  type: VARCHAR(255)
-              - column:
-                  name: modified_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: modified_by
-                  type: VARCHAR(255)
-            tableName: users
-  - changeSet:
-      id: 10020191122-3
-      author: tinh
-      runOnChange: true
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    primaryKey: true
-                    primaryKeyName: role_pkey
-                  name: id
-                  type: BIGINT
-              - column:
-                  name: name
-                  type: VARCHAR(255)
-              - column:
-                  name: number
-                  type: INTEGER
-            tableName: role
-  - changeSet:
-      id: 10020191122-4
-      author: tinh
-      runOnChange: true
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: role_id
-            baseTableName: users
-            constraintName: fk4qu1gr772nnf6ve5af002rwya
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: id
-            referencedTableName: role
-            validate: true
-  - changeSet:
-      id: 10020191123-1
-      author: tinh
-      runOnChange: true
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    primaryKey: true
-                    primaryKeyName: user_detail_pkey
-                  name: id
+                  name: department_id
                   type: BIGINT
               - column:
                   name: name
@@ -122,23 +63,91 @@ databaseChangeLog:
               - column:
                   name: modified_by
                   type: VARCHAR(255)
-              - column:
-                  name: user_id
-                  type: BIGINT
-            tableName: user_detail
+            tableName: employee
   - changeSet:
-      id: 10020191123-2
+      id: 10020191125-3
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: role_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: job_title
+                  type: VARCHAR(255)
+            tableName: role
+  - changeSet:
+      id: 10020191125-4
       author: tinh
       runOnChange: true
       changes:
         - addForeignKeyConstraint:
-            baseColumnNames: user_id
-            baseTableName: user_detail
-            constraintName: fk_users_user_detail
+            baseColumnNames: role_id
+            baseTableName: employee
+            constraintName: fk4qu1gr772nnf6ve5af002rwya
             deferrable: false
             initiallyDeferred: false
             onDelete: NO ACTION
             onUpdate: NO ACTION
             referencedColumnNames: id
-            referencedTableName: users
+            referencedTableName: role
             validate: true
+  - changeSet:
+      id: 10020191125-5
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: department_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    unique: true
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: department
+            schema: public
+  - changeSet:
+      id: 10020191125-6
+      author: tinh
+      runOnChange: true
+      changes:
+      - addForeignKeyConstraint:
+          baseColumnNames: department_id
+          baseTableName: employee
+          constraintName: fk_department_employee
+          deferrable: false
+          initiallyDeferred: false
+          onDelete: NO ACTION
+          onUpdate: NO ACTION
+          referencedColumnNames: id
+          referencedTableName: department
+          validate: true

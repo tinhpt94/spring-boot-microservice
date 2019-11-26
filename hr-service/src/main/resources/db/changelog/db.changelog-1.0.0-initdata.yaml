@@ -1,0 +1,276 @@
+databaseChangeLog:
+- changeSet:
+    id: 10020191125-7
+    author: tinh
+    comment: Insert Roles
+    runOnChange: true
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: id
+            value: 1
+        - column:
+            name: name
+            value: HR_ADMIN
+        - column:
+            name: job_title
+            value: Human Resource Admin
+        schemaName: public
+        tableName: role
+    - insert:
+        columns:
+        - column:
+            name: id
+            value: 2
+        - column:
+            name: name
+            value: SALE
+        - column:
+            name: job_title
+            value: SALE
+        schemaName: public
+        tableName: role
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 3
+          - column:
+              name: name
+              value: SALE_ADMIN
+          - column:
+              name: job_title
+              value: SALE ADMIN
+        schemaName: public
+        tableName: role
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 4
+          - column:
+              name: name
+              value: SALE_MANGER
+          - column:
+              name: job_title
+              value: SALE MANAGER
+        schemaName: public
+        tableName: role
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 5
+          - column:
+              name: name
+              value: ACT_COMMISSION
+          - column:
+              name: job_title
+              value: ACCOUNTING COMMISION
+        schemaName: public
+        tableName: role
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 6
+          - column:
+              name: name
+              value: ACT_ASSETS
+          - column:
+              name: job_title
+              value: ACCOUNTING ASSETS
+        schemaName: public
+        tableName: role
+- changeSet:
+    id: 10020191125-8
+    author: tinh
+    comment: Insert Departments
+    runOnChange: true
+    changes:
+      - insert:
+          columns:
+            - column:
+                name: id
+                value: 7
+            - column:
+                name: name
+                value: Human Resource
+            - column:
+                name: description
+                value: Company Resource Management
+          schemaName: public
+          tableName: department
+      - insert:
+          columns:
+            - column:
+                name: id
+                value: 8
+            - column:
+                name: name
+                value: SALE
+            - column:
+                name: description
+                value: Product Sale Department
+          schemaName: public
+          tableName: department
+      - insert:
+          columns:
+            - column:
+                name: id
+                value: 9
+            - column:
+                name: name
+                value: ACCOUNTING
+            - column:
+                name: description
+                value: Accounting Department
+          schemaName: public
+          tableName: department
+- changeSet:
+    id: 10020191125-9
+    author: tinh
+    comment: Insert Employees
+    runOnChange: true
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: id
+            value: 10
+        - column:
+            name: username
+            value: lan@crystal-holiday.com
+        - column:
+            name: name
+            value: Cao Thị Lan
+        - column:
+            name: encrypted_password
+            value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+        - column:
+            name: role_id
+            value: 5
+        - column:
+            name: department_id
+            value: 9
+        - column:
+            name: created_by
+            value: administrator
+        - column:
+            name: created_on
+            value: now()
+        schemaName: public
+        tableName: employee
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 11
+          - column:
+              name: username
+              value: sale@crystal-holiday.com
+          - column:
+              name: name
+              value: Sale
+          - column:
+              name: encrypted_password
+              value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+          - column:
+              name: role_id
+              value: 2
+          - column:
+              name: department_id
+              value: 8
+          - column:
+              name: created_by
+              value: administrator
+          - column:
+              name: created_on
+              value: now()
+        schemaName: public
+        tableName: employee
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 12
+          - column:
+              name: username
+              value: sale-admin@crystal-holiday.com
+          - column:
+              name: name
+              value: Sale Admin
+          - column:
+              name: encrypted_password
+              value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+          - column:
+              name: role_id
+              value: 3
+          - column:
+              name: department_id
+              value: 8
+          - column:
+              name: created_by
+              value: administrator
+          - column:
+              name: created_on
+              value: now()
+        schemaName: public
+        tableName: employee
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 13
+          - column:
+              name: username
+              value: sale-manager@crystal-holiday.com
+          - column:
+              name: name
+              value: Sale Manager
+          - column:
+              name: encrypted_password
+              value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+          - column:
+              name: role_id
+              value: 4
+          - column:
+              name: department_id
+              value: 8
+          - column:
+              name: created_by
+              value: administrator
+          - column:
+              name: created_on
+              value: now()
+        schemaName: public
+        tableName: employee
+    - insert:
+        columns:
+          - column:
+              name: id
+              value: 14
+          - column:
+              name: username
+              value: assets@crystal-holiday.com
+          - column:
+              name: name
+              value: Assets Manager
+          - column:
+              name: encrypted_password
+              value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+          - column:
+              name: role_id
+              value: 6
+          - column:
+              name: department_id
+              value: 9
+          - column:
+              name: created_by
+              value: administrator
+          - column:
+              name: created_on
+              value: now()
+        schemaName: public
+        tableName: employee

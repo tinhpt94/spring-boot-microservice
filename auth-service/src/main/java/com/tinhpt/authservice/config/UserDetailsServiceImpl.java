@@ -1,7 +1,7 @@
 package com.tinhpt.authservice.config;
 
-import com.tinhpt.authservice.entities.UserEntity;
-import com.tinhpt.authservice.repositories.UserDao;
+import com.tinhpt.authservice.entities.EmployeeEntity;
+import com.tinhpt.authservice.repositories.EmployeeDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,18 +20,18 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserDao userDao;
+    private EmployeeDao employeeDao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         log.debug("Authenticating {}", username);
 
-        return userDao.findByUsernameIgnoreCase(username)
+        return employeeDao.findByUsernameIgnoreCase(username)
                 .map(this::createSpringSecurityUser)
                 .orElseThrow(() -> new UsernameNotFoundException("Username: " + username + " not found"));
     }
 
-    private User createSpringSecurityUser(UserEntity user) {
+    private User createSpringSecurityUser(EmployeeEntity user) {
         List<GrantedAuthority> grantedAuthorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName()));
         return new User(user.getUsername(), user.getEncryptedPassword(), grantedAuthorities);
     }

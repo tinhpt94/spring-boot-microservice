@@ -1,6 +1,6 @@
 package com.tinhpt.hr.controllers;
 
-import com.tinhpt.hr.services.IUserService;
+import com.tinhpt.hr.services.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/employee")
+public class EmployeeController {
 
     @Autowired
-    private IUserService userService;
+    private IEmployeeService userService;
 
-    @Secured("ROLE_ADMIN")
+    @Secured("ROLE_HR_ADMIN")
     @RequestMapping(method = RequestMethod.POST, consumes = { "multipart/form-data" })
-    public ResponseEntity<Long> createUser(@RequestPart("user") UserCreateRequest request, @RequestPart("file") MultipartFile file) {
+    public ResponseEntity<Long> createUser(@RequestPart("user") EmployeeCreateRequest request, @RequestPart("file") MultipartFile file) {
         return ResponseEntity.ok(userService.create(request, file));
     }
 
     @GetMapping()
-    public ResponseEntity<UserDetailResponse> getCurrentUser() {
+    public ResponseEntity<EmployeeResponse> getCurrentUser() {
         return  ResponseEntity.ok(userService.getCurrentUser());
     }
 }

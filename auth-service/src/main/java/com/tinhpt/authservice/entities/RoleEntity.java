@@ -26,8 +26,9 @@ public class RoleEntity {
     @Column(unique = true)
     private String name;
 
+    @Column(name = "job_title")
     @NotNull
-    private Integer number;
+    private String jobTitle;
 
     @Override
     public boolean equals(Object o) {
@@ -36,12 +37,11 @@ public class RoleEntity {
         if (!super.equals(o)) return false;
         RoleEntity that = (RoleEntity) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(number, that.number);
+                Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, name, number);
+        return Objects.hash(super.hashCode(), id, name);
     }
 }

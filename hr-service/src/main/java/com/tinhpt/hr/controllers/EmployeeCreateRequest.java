@@ -2,11 +2,13 @@ package com.tinhpt.hr.controllers;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
-public class UserDetailResponse {
-    private String username;
+public class EmployeeCreateRequest {
     private String name;
     private String address;
-    private String imageUrl;
     private String role;
+    private String username;
+    private LocalDateTime dob;
 }

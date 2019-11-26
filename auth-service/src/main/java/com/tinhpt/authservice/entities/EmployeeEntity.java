@@ -19,9 +19,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 @NoArgsConstructor
 @Data
-@Table(name = "users")
+@Table(name = "employee")
 @EqualsAndHashCode(callSuper=false)
-public class UserEntity extends AuditEntity {
+public class EmployeeEntity extends AuditEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;

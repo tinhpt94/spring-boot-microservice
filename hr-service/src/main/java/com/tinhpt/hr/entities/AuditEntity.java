@@ -11,7 +11,7 @@ import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
-@Data()
+@Data
 @MappedSuperclass
 public abstract class AuditEntity {
     @Column(name = "created_by")
