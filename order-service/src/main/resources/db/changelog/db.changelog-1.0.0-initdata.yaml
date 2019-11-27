@@ -64,7 +64,7 @@ databaseChangeLog:
   - changeSet:
       id: 10020191126-10
       author: tinh
-      comment: Insert Order
+      comment: Insert Orders
       runOnChange: true
       changes:
         - insert:
@@ -82,7 +82,7 @@ databaseChangeLog:
                 name: customer_id
                 value: 1
             schemaName: public
-            tableName: order
+            tableName: orders
         - insert:
             columns:
             - column:
@@ -98,7 +98,7 @@ databaseChangeLog:
                 name: customer_id
                 value: 1
             schemaName: public
-            tableName: order
+            tableName: orders
         - insert:
             columns:
             - column:
@@ -114,7 +114,7 @@ databaseChangeLog:
                 name: customer_id
                 value: 2
             schemaName: public
-            tableName: order
+            tableName: orders
   - changeSet:
       id: 10020191126-11
       author: tinh

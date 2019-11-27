@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @Data
-@Table(name = "order")
+@Table(name = "orders")
 @EqualsAndHashCode(callSuper=false)
 public class OrderEntity extends AuditEntity {
     @Id

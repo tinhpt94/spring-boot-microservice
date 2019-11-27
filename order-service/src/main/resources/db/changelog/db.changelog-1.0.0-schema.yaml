@@ -98,7 +98,7 @@ databaseChangeLog:
               - column:
                   name: modified_by
                   type: VARCHAR(255)
-            tableName: order
+            tableName: orders
   - changeSet:
       id: 10020191126-4
       author: tinh
@@ -106,7 +106,7 @@ databaseChangeLog:
       changes:
         - addForeignKeyConstraint:
             baseColumnNames: customer_id
-            baseTableName: order
+            baseTableName: orders
             constraintName: fk_order_customer
             deferrable: false
             initiallyDeferred: false
@@ -171,7 +171,7 @@ databaseChangeLog:
           onDelete: NO ACTION
           onUpdate: NO ACTION
           referencedColumnNames: id
-          referencedTableName: order
+          referencedTableName: orders
           validate: true
   - changeSet:
       id: 10020191126-7
