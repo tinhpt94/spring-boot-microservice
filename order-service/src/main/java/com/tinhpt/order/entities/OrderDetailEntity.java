@@ -17,7 +17,8 @@ public class OrderDetailEntity extends AuditEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private Long productId;
+    @ManyToOne
+    private CardDetailEntity cardDetail;
 
     private LocalDateTime depositDate;
 

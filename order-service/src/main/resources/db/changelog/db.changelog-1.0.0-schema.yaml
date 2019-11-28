@@ -132,7 +132,7 @@ databaseChangeLog:
                   name: order_id
                   type: BIGINT
               - column:
-                  name: product_id
+                  name: card_detail_id
                   type: BIGINT
               - column:
                   name: deposit_date
@@ -162,17 +162,18 @@ databaseChangeLog:
       author: tinh
       runOnChange: true
       changes:
-      - addForeignKeyConstraint:
-          baseColumnNames: order_id
-          baseTableName: order_detail
-          constraintName: fk_order_order_detail
-          deferrable: false
-          initiallyDeferred: false
-          onDelete: NO ACTION
-          onUpdate: NO ACTION
-          referencedColumnNames: id
-          referencedTableName: orders
-          validate: true
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: order_detail
+            constraintName: fk_order_order_detail
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
+
   - changeSet:
       id: 10020191126-7
       author: tinh
@@ -233,4 +234,205 @@ databaseChangeLog:
             onUpdate: NO ACTION
             referencedColumnNames: id
             referencedTableName: order_detail
+            validate: true
+  - changeSet:
+      id: 10020191127-1
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: season_type_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: season_type
+  - changeSet:
+      id: 10020191127-2
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: card_type_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: quantity
+                  type: INT
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: card_type
+  - changeSet:
+      id: 10020191127-3
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: room_type_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: room_type
+  - changeSet:
+      id: 10020191127-4
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: card_detail_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: unit_price
+                  type: BIGINT
+              - column:
+                  name: annual_fee
+                  type: BIGINT
+              - column:
+                  name: re_sign_fee
+                  type: BIGINT
+              - column:
+                  name: card_type_id
+                  type: BIGINT
+              - column:
+                  name: season_type_id
+                  type: BIGINT
+              - column:
+                  name: room_type_id
+                  type: BIGINT
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: card_detail
+  - changeSet:
+      id: 10020191127-5
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: card_type_id
+            baseTableName: card_detail
+            constraintName: fk_card_detail_card_type
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: card_type
+            validate: true
+  - changeSet:
+      id: 10020191127-6
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: season_type_id
+            baseTableName: card_detail
+            constraintName: fk_card_detail_season_type
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: season_type
+            validate: true
+  - changeSet:
+      id: 10020191127-7
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: room_type_id
+            baseTableName: card_detail
+            constraintName: fk_card_detail_room_type
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: room_type
+            validate: true
+  - changeSet:
+      id: 10020191127-8
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: card_detail_id
+            baseTableName: order_detail
+            constraintName: fk_order_detail_card_detail
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: card_detail
             validate: true

@@ -1,283 +1,597 @@
 databaseChangeLog:
   - changeSet:
-      id: 10020191126-9
+      id: 10020191127-9
+      author: tinh
+      comment: Insert Card Type
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 13
+              - column:
+                  name: name
+                  value: 50 năm
+              - column:
+                  name: quantity
+                  value: 50
+            schemaName: public
+            tableName: card_type
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 14
+              - column:
+                  name: name
+                  value: 25 năm
+              - column:
+                  name: quantity
+                  value: 25
+            schemaName: public
+            tableName: card_type
+  - changeSet:
+      id: 10020191127-10
+      author: tinh
+      comment: Insert Room Type
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 15
+              - column:
+                  name: name
+                  value: 01 phòng ngủ
+            schemaName: public
+            tableName: room_type
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 16
+              - column:
+                  name: name
+                  value: 02 phòng ngủ
+            schemaName: public
+            tableName: room_type
+  - changeSet:
+      id: 10020191127-11
+      author: tinh
+      comment: Insert Season Type
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 17
+              - column:
+                  name: name
+                  value: Mùa thấp điểm
+            schemaName: public
+            tableName: season_type
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 18
+              - column:
+                  name: name
+                  value: Mùa cao điểm
+            schemaName: public
+            tableName: season_type
+  - changeSet:
+      id: 10020191127-12
+      author: tinh
+      comment: Insert Card Detail
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 19
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 1669800
+              - column:
+                  name: annual_fee
+                  value: 3300000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 13
+              - column:
+                  name: room_type_id
+                  value: 15
+              - column:
+                  name: season_type_id
+                  value: 17
+            schemaName: public
+            tableName: card_detail
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 20
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 1973400
+              - column:
+                  name: annual_fee
+                  value: 4400000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 13
+              - column:
+                  name: room_type_id
+                  value: 15
+              - column:
+                  name: season_type_id
+                  value: 18
+            schemaName: public
+            tableName: card_detail
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 21
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 3005640
+              - column:
+                  name: annual_fee
+                  value: 4400000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 13
+              - column:
+                  name: room_type_id
+                  value: 16
+              - column:
+                  name: season_type_id
+                  value: 17
+            schemaName: public
+            tableName: card_detail
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 22
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 3552120
+              - column:
+                  name: annual_fee
+                  value: 5500000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 13
+              - column:
+                  name: room_type_id
+                  value: 16
+              - column:
+                  name: season_type_id
+                  value: 18
+            schemaName: public
+            tableName: card_detail
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 23
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 1290300
+              - column:
+                  name: annual_fee
+                  value: 3300000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 14
+              - column:
+                  name: room_type_id
+                  value: 15
+              - column:
+                  name: season_type_id
+                  value: 17
+            schemaName: public
+            tableName: card_detail
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 24
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 1442100
+              - column:
+                  name: annual_fee
+                  value: 4400000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 14
+              - column:
+                  name: room_type_id
+                  value: 15
+              - column:
+                  name: season_type_id
+                  value: 18
+            schemaName: public
+            tableName: card_detail
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 25
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 2322540
+              - column:
+                  name: annual_fee
+                  value: 4400000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 14
+              - column:
+                  name: room_type_id
+                  value: 16
+              - column:
+                  name: season_type_id
+                  value: 17
+            schemaName: public
+            tableName: card_detail
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 26
+              - column:
+                  name: name
+                  value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
+              - column:
+                  name: unit_price
+                  value: 2595780
+              - column:
+                  name: annual_fee
+                  value: 5500000
+              - column:
+                  name: re_sign_fee
+                  value: 1100000
+              - column:
+                  name: card_type_id
+                  value: 14
+              - column:
+                  name: room_type_id
+                  value: 16
+              - column:
+                  name: season_type_id
+                  value: 18
+            schemaName: public
+            tableName: card_detail
+  - changeSet:
+      id: 10020191127-13
       author: tinh
       comment: Insert Customer
       runOnChange: true
       changes:
         - insert:
             columns:
-            - column:
-                name: id
-                value: 1
-            - column:
-                name: name
-                value: Phạm Trung Tính
-            - column:
-                name: phone
-                value: 0972426521
-            - column:
-                name: address1
-                value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
-            - column:
-                name: address2
-                value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
-            - column:
-                name: sale_id
-                value: 11
-            - column:
-                name: sale_admin_id
-                value: 12
-            - column:
-                name: sale_manager_id
-                value: 13
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: Phạm Trung Tính
+              - column:
+                  name: phone
+                  value: 0972426521
+              - column:
+                  name: address1
+                  value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
+              - column:
+                  name: address2
+                  value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
+              - column:
+                  name: sale_id
+                  value: 11
+              - column:
+                  name: sale_admin_id
+                  value: 12
+              - column:
+                  name: sale_manager_id
+                  value: 13
             tableName: customer
             schemaName: public
         - insert:
             columns:
-            - column:
-                name: id
-                value: 2
-            - column:
-                name: name
-                value: Cao Thị Lan
-            - column:
-                name: phone
-                value: 0968785313
-            - column:
-                name: address1
-                value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
-            - column:
-                name: address2
-                value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
-            - column:
-                name: sale_id
-                value: 11
-            - column:
-                name: sale_admin_id
-                value: 12
-            - column:
-                name: sale_manager_id
-                value: 13
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: name
+                  value: Cao Thị Lan
+              - column:
+                  name: phone
+                  value: 0968785313
+              - column:
+                  name: address1
+                  value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
+              - column:
+                  name: address2
+                  value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
+              - column:
+                  name: sale_id
+                  value: 11
+              - column:
+                  name: sale_admin_id
+                  value: 12
+              - column:
+                  name: sale_manager_id
+                  value: 13
             tableName: customer
             schemaName: public
   - changeSet:
-      id: 10020191126-10
+      id: 10020191127-14
       author: tinh
       comment: Insert Orders
       runOnChange: true
       changes:
         - insert:
             columns:
-            - column:
-                name: id
-                value: 3
-            - column:
-                name: order_date
-                value: now()
-            - column:
-                name: status
-                value: SUCCESS
-            - column:
-                name: customer_id
-                value: 1
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: order_date
+                  value: now()
+              - column:
+                  name: status
+                  value: SUCCESS
+              - column:
+                  name: customer_id
+                  value: 1
             schemaName: public
             tableName: orders
         - insert:
             columns:
-            - column:
-                name: id
-                value: 4
-            - column:
-                name: order_date
-                value: now()
-            - column:
-                name: status
-                value: PENDING
-            - column:
-                name: customer_id
-                value: 1
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: order_date
+                  value: now()
+              - column:
+                  name: status
+                  value: PENDING
+              - column:
+                  name: customer_id
+                  value: 1
             schemaName: public
             tableName: orders
         - insert:
             columns:
-            - column:
-                name: id
-                value: 5
-            - column:
-                name: order_date
-                value: now()
-            - column:
-                name: status
-                value: SUCCESS
-            - column:
-                name: customer_id
-                value: 2
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: order_date
+                  value: now()
+              - column:
+                  name: status
+                  value: SUCCESS
+              - column:
+                  name: customer_id
+                  value: 2
             schemaName: public
             tableName: orders
   - changeSet:
-      id: 10020191126-11
+      id: 10020191127-15
       author: tinh
       comment: Insert Order Detail
       runOnChange: true
       changes:
         - insert:
             columns:
-            - column:
-                name: id
-                value: 6
-            - column:
-                name: deposit_date
-                value: now()
-            - column:
-                name: contract_value
-                value: 300000000
-            - column:
-                name: contract_value_vat
-                value: 330000000
-            - column:
-                name: order_id
-                value: 3
-            - column:
-                name: product_id
-                value: 1
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: deposit_date
+                  value: now()
+              - column:
+                  name: contract_value
+                  value: 265650000
+              - column:
+                  name: contract_value_vat
+                  value: 292215000
+              - column:
+                  name: order_id
+                  value: 3
+              - column:
+                  name: card_detail_id
+                  value: 19
             schemaName: public
             tableName: order_detail
         - insert:
             columns:
-            - column:
-                name: id
-                value: 7
-            - column:
-                name: deposit_date
-                value: now()
-            - column:
-                name: contract_value
-                value: 200000000
-            - column:
-                name: contract_value_vat
-                value: 220000000
-            - column:
-                name: order_id
-                value: 3
-            - column:
-                name: product_id
-                value: 2
+              - column:
+                  name: id
+                  value: 7
+              - column:
+                  name: deposit_date
+                  value: now()
+              - column:
+                  name: contract_value
+                  value: 478170000
+              - column:
+                  name: contract_value_vat
+                  value: 525987000
+              - column:
+                  name: order_id
+                  value: 3
+              - column:
+                  name: card_detail_id
+                  value: 21
             schemaName: public
             tableName: order_detail
         - insert:
             columns:
-            - column:
-                name: id
-                value: 8
-            - column:
-                name: deposit_date
-                value: now()
-            - column:
-                name: contract_value
-                value: 100000000
-            - column:
-                name: contract_value_vat
-                value: 110000000
-            - column:
-                name: order_id
-                value: 4
-            - column:
-                name: product_id
-                value: 1
+              - column:
+                  name: id
+                  value: 8
+              - column:
+                  name: deposit_date
+                  value: now()
+              - column:
+                  name: contract_value
+                  value: 738990000
+              - column:
+                  name: contract_value_vat
+                  value: 812889000
+              - column:
+                  name: order_id
+                  value: 4
+              - column:
+                  name: card_detail_id
+                  value: 25
             schemaName: public
             tableName: order_detail
         - insert:
             columns:
-            - column:
-                name: id
-                value: 9
-            - column:
-                name: deposit_date
-                value: now()
-            - column:
-                name: contract_value
-                value: 400000000
-            - column:
-                name: contract_value_vat
-                value: 440000000
-            - column:
-                name: order_id
-                value: 5
-            - column:
-                name: product_id
-                value: 2
+              - column:
+                  name: id
+                  value: 9
+              - column:
+                  name: deposit_date
+                  value: now()
+              - column:
+                  name: contract_value
+                  value: 825930000
+              - column:
+                  name: contract_value_vat
+                  value: 908523000
+              - column:
+                  name: order_id
+                  value: 5
+              - column:
+                  name: card_detail_id
+                  value: 26
             schemaName: public
             tableName: order_detail
   - changeSet:
-      id: 10020191126-12
+      id: 10020191127-16
       author: tinh
       comment: Insert Payment Histories
       runOnChange: true
       changes:
         - insert:
             columns:
-            - column:
-                name: id
-                value: 10
-            - column:
-                name: date
-                value: now()
-            - column:
-                name: value
-                value: 20000000
-            - column:
-                name: value_vat
-                value: 22000000
-            - column:
-                name: order_detail_id
-                value: 6
-            - column:
-                name: type
-                value: CASH
+              - column:
+                  name: id
+                  value: 10
+              - column:
+                  name: date
+                  value: now()
+              - column:
+                  name: value
+                  value: 20000000
+              - column:
+                  name: value_vat
+                  value: 22000000
+              - column:
+                  name: order_detail_id
+                  value: 6
+              - column:
+                  name: type
+                  value: CASH
             schemaName: public
             tableName: payment_history
         - insert:
             columns:
-            - column:
-                name: id
-                value: 11
-            - column:
-                name: date
-                value: now()
-            - column:
-                name: value
-                value: 50000000
-            - column:
-                name: value_vat
-                value: 55000000
-            - column:
-                name: order_detail_id
-                value: 6
-            - column:
-                name: type
-                value: Credit Card
+              - column:
+                  name: id
+                  value: 11
+              - column:
+                  name: date
+                  value: now()
+              - column:
+                  name: value
+                  value: 50000000
+              - column:
+                  name: value_vat
+                  value: 55000000
+              - column:
+                  name: order_detail_id
+                  value: 6
+              - column:
+                  name: type
+                  value: Credit Card
             schemaName: public
             tableName: payment_history
         - insert:
             columns:
-            - column:
-                name: id
-                value: 12
-            - column:
-                name: date
-                value: now()
-            - column:
-                name: value
-                value: 30000000
-            - column:
-                name: value_vat
-                value: 33000000
-            - column:
-                name: order_detail_id
-                value: 9
-            - column:
-                name: type
-                value: ATM
+              - column:
+                  name: id
+                  value: 12
+              - column:
+                  name: date
+                  value: now()
+              - column:
+                  name: value
+                  value: 30000000
+              - column:
+                  name: value_vat
+                  value: 33000000
+              - column:
+                  name: order_detail_id
+                  value: 9
+              - column:
+                  name: type
+                  value: ATM
             schemaName: public
             tableName: payment_history
