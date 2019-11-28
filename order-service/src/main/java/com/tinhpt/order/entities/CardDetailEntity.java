@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Data
 @Table(name = "card_detail")
 @EqualsAndHashCode(callSuper=false)
-public class CardDetailEntity extends BaseEntity{
+public class CardDetailEntity extends BaseEntity {
 
     private Long unitPrice;
     private Long annualFee;
