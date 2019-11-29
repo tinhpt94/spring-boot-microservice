@@ -34,8 +34,12 @@ spring:
       file-size-threshold: 2KB
       max-file-size: 200MB
       max-request-size: 215MB
+  devtools:
+    livereload:
+      port: 35731
 server:
   port: 9300
+
 
 file:
   upload:

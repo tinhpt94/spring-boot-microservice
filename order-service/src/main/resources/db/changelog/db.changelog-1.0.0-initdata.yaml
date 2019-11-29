@@ -12,10 +12,10 @@ databaseChangeLog:
                   value: 13
               - column:
                   name: name
-                  value: 50 năm
+                  value: 25 năm
               - column:
                   name: quantity
-                  value: 50
+                  value: 25
             schemaName: public
             tableName: card_type
         - insert:
@@ -25,10 +25,10 @@ databaseChangeLog:
                   value: 14
               - column:
                   name: name
-                  value: 25 năm
+                  value: 50 năm
               - column:
                   name: quantity
-                  value: 25
+                  value: 50
             schemaName: public
             tableName: card_type
   - changeSet:
