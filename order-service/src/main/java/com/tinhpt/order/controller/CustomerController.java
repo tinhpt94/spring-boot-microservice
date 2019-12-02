@@ -3,6 +3,7 @@ package com.tinhpt.order.controller;
 import com.tinhpt.order.dto.CustomerResponse;
 import com.tinhpt.order.dto.OrderResponse;
 import com.tinhpt.order.service.ICustomerService;
+import com.tinhpt.order.service.IOrderService;
 import com.tinhpt.order.specification.CustomerSpec;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class CustomerController {
 
     @Autowired
     private ICustomerService customerService;
+
+    @Autowired
+    private IOrderService orderService;
 
     @ApiOperation("Return list of customers")
     @ApiImplicitParams({
@@ -44,6 +48,6 @@ public class CustomerController {
     @ApiOperation("Return list orders of customer")
     @GetMapping("/{id}/orders")
     public ResponseEntity<List<OrderResponse>> findOrderByCustomerId(@PathVariable("id") Long customerId) {
-        return ResponseEntity.ok(customerService.findByCustomerId(customerId));
+        return ResponseEntity.ok(orderService.findOrderByCustomerId(customerId));
     }
 }

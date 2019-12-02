@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 10020191126-1
+      id: 10020191129-1
       author: tinh
       runOnChange: true
       changes:
@@ -12,7 +12,7 @@ databaseChangeLog:
             schemaName: public
             sequenceName: hibernate_sequence
   - changeSet:
-      id: 10020191126-2
+      id: 10020191129-2
       author: tinh
       runOnChange: true
       changes:
@@ -37,18 +37,6 @@ databaseChangeLog:
                   name: address2
                   type: VARCHAR(255)
               - column:
-                  name: tele_sale_id
-                  type: BIGINT
-              - column:
-                  name: sale_id
-                  type: BIGINT
-              - column:
-                  name: sale_admin_id
-                  type: BIGINT
-              - column:
-                  name: sale_manager_id
-                  type: BIGINT
-              - column:
                   name: created_on
                   type: TIMESTAMP WITHOUT TIME ZONE
               - column:
@@ -61,182 +49,9 @@ databaseChangeLog:
                   name: modified_by
                   type: VARCHAR(255)
             tableName: customer
-  - changeSet:
-      id: 10020191126-3
-      author: tinh
-      runOnChange: true
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    primaryKey: true
-                    primaryKeyName: order_pkey
-                  name: id
-                  type: BIGINT
-              - column:
-                  name: order_date
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: status
-                  type: VARCHAR(50)
-              - column:
-                  name: comment
-                  type: VARCHAR(255)
-              - column:
-                  name: customer_id
-                  type: BIGINT
-              - column:
-                  name: created_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: created_by
-                  type: VARCHAR(255)
-              - column:
-                  name: modified_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: modified_by
-                  type: VARCHAR(255)
-            tableName: orders
-  - changeSet:
-      id: 10020191126-4
-      author: tinh
-      runOnChange: true
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: customer_id
-            baseTableName: orders
-            constraintName: fk_order_customer
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: id
-            referencedTableName: customer
-            validate: true
-  - changeSet:
-      id: 10020191126-5
-      author: tinh
-      runOnChange: true
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    primaryKey: true
-                    primaryKeyName: order_detail_pkey
-                  name: id
-                  type: BIGINT
-              - column:
-                  name: order_id
-                  type: BIGINT
-              - column:
-                  name: card_detail_id
-                  type: BIGINT
-              - column:
-                  name: deposit_date
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: contract_value
-                  type: BIGINT
-              - column:
-                  name: contract_value_vat
-                  type: BIGINT
-              - column:
-                  name: created_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: created_by
-                  type: VARCHAR(255)
-              - column:
-                  name: modified_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: modified_by
-                  type: VARCHAR(255)
-            tableName: order_detail
-            schema: public
-  - changeSet:
-      id: 10020191126-6
-      author: tinh
-      runOnChange: true
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: order_id
-            baseTableName: order_detail
-            constraintName: fk_order_order_detail
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: id
-            referencedTableName: orders
-            validate: true
 
   - changeSet:
-      id: 10020191126-7
-      author: tinh
-      runOnChange: true
-      changes:
-        - createTable:
-            columns:
-              - column:
-                  constraints:
-                    primaryKey: true
-                    primaryKeyName: payment_history_pkey
-                  name: id
-                  type: BIGINT
-              - column:
-                  name: order_detail_id
-                  type: BIGINT
-              - column:
-                  name: date
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: value
-                  type: BIGINT
-              - column:
-                  name: value_vat
-                  type: BIGINT
-              - column:
-                  name: type
-                  type: VARCHAR(255)
-              - column:
-                  name: comment
-                  type: VARCHAR(255)
-              - column:
-                  name: created_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: created_by
-                  type: VARCHAR(255)
-              - column:
-                  name: modified_on
-                  type: TIMESTAMP WITHOUT TIME ZONE
-              - column:
-                  name: modified_by
-                  type: VARCHAR(255)
-            tableName: payment_history
-            schema: public
-  - changeSet:
-      id: 10020191126-8
-      author: tinh
-      runOnChange: true
-      changes:
-        - addForeignKeyConstraint:
-            baseColumnNames: order_detail_id
-            baseTableName: payment_history
-            constraintName: fk_order_detail_payment_history
-            deferrable: false
-            initiallyDeferred: false
-            onDelete: NO ACTION
-            onUpdate: NO ACTION
-            referencedColumnNames: id
-            referencedTableName: order_detail
-            validate: true
-  - changeSet:
-      id: 10020191127-1
+      id: 10020191129-3
       author: tinh
       runOnChange: true
       changes:
@@ -265,7 +80,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: season_type
   - changeSet:
-      id: 10020191127-2
+      id: 10020191129-4
       author: tinh
       runOnChange: true
       changes:
@@ -297,7 +112,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: card_type
   - changeSet:
-      id: 10020191127-3
+      id: 10020191129-5
       author: tinh
       runOnChange: true
       changes:
@@ -326,7 +141,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: room_type
   - changeSet:
-      id: 10020191127-4
+      id: 10020191129-6
       author: tinh
       runOnChange: true
       changes:
@@ -373,7 +188,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: card_detail
   - changeSet:
-      id: 10020191127-5
+      id: 10020191129-7
       author: tinh
       runOnChange: true
       changes:
@@ -389,7 +204,7 @@ databaseChangeLog:
             referencedTableName: card_type
             validate: true
   - changeSet:
-      id: 10020191127-6
+      id: 10020191129-8
       author: tinh
       runOnChange: true
       changes:
@@ -405,7 +220,7 @@ databaseChangeLog:
             referencedTableName: season_type
             validate: true
   - changeSet:
-      id: 10020191127-7
+      id: 10020191129-9
       author: tinh
       runOnChange: true
       changes:
@@ -421,14 +236,92 @@ databaseChangeLog:
             referencedTableName: room_type
             validate: true
   - changeSet:
-      id: 10020191127-8
+      id: 10020191129-10
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: order_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: status
+                  type: VARCHAR(50)
+              - column:
+                  name: contract_value
+                  type: BIGINT
+              - column:
+                  name: contract_value_vat
+                  type: BIGINT
+              - column:
+                  name: discount
+                  type: INT
+              - column:
+                  name: comment
+                  type: VARCHAR(255)
+              - column:
+                  name: customer_id
+                  type: BIGINT
+              - column:
+                  name: tele_sale_id
+                  type: BIGINT
+              - column:
+                  name: sale_id
+                  type: BIGINT
+              - column:
+                  name: sale_admin_id
+                  type: BIGINT
+              - column:
+                  name: sale_manager_id
+                  type: BIGINT
+              - column:
+                  name: card_detail_id
+                  type: BIGINT
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: orders
+  - changeSet:
+            id: 10020191129-11
+            author: tinh
+            runOnChange: true
+            changes:
+              - addForeignKeyConstraint:
+                  baseColumnNames: customer_id
+                  baseTableName: orders
+                  constraintName: fk_order_customer
+                  deferrable: false
+                  initiallyDeferred: false
+                  onDelete: NO ACTION
+                  onUpdate: NO ACTION
+                  referencedColumnNames: id
+                  referencedTableName: customer
+                  validate: true
+  - changeSet:
+      id: 10020191129-12
       author: tinh
       runOnChange: true
       changes:
         - addForeignKeyConstraint:
             baseColumnNames: card_detail_id
-            baseTableName: order_detail
-            constraintName: fk_order_detail_card_detail
+            baseTableName: orders
+            constraintName: fk_order_card_detail
             deferrable: false
             initiallyDeferred: false
             onDelete: NO ACTION
@@ -436,3 +329,64 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: card_detail
             validate: true
+  - changeSet:
+            id: 10020191129-13
+            author: tinh
+            runOnChange: true
+            changes:
+              - createTable:
+                  columns:
+                    - column:
+                        constraints:
+                          primaryKey: true
+                          primaryKeyName: payment_history_pkey
+                        name: id
+                        type: BIGINT
+                    - column:
+                        name: order_id
+                        type: BIGINT
+                    - column:
+                        name: date
+                        type: TIMESTAMP WITHOUT TIME ZONE
+                    - column:
+                        name: value
+                        type: BIGINT
+                    - column:
+                        name: value_vat
+                        type: BIGINT
+                    - column:
+                        name: type
+                        type: VARCHAR(255)
+                    - column:
+                        name: comment
+                        type: VARCHAR(255)
+                    - column:
+                        name: created_on
+                        type: TIMESTAMP WITHOUT TIME ZONE
+                    - column:
+                        name: created_by
+                        type: VARCHAR(255)
+                    - column:
+                        name: modified_on
+                        type: TIMESTAMP WITHOUT TIME ZONE
+                    - column:
+                        name: modified_by
+                        type: VARCHAR(255)
+                  tableName: payment_history
+                  schema: public
+  - changeSet:
+            id: 10020191129-14
+            author: tinh
+            runOnChange: true
+            changes:
+              - addForeignKeyConstraint:
+                  baseColumnNames: order_id
+                  baseTableName: payment_history
+                  constraintName: fk_order_payment_history
+                  deferrable: false
+                  initiallyDeferred: false
+                  onDelete: NO ACTION
+                  onUpdate: NO ACTION
+                  referencedColumnNames: id
+                  referencedTableName: orders
+                  validate: true

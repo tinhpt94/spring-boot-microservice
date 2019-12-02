@@ -27,4 +27,9 @@ public class CardDetailEntity extends BaseEntity {
 
     @ManyToOne
     private SeasonTypeEntity seasonType;
+
+    @Override
+    public String toString() {
+        return "Kỳ nghỉ 07 đêm tiêu chuẩn 5* - " + cardType.getName() + " - " + roomType.getName() + " - " + seasonType.getName();
+    }
 }

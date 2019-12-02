@@ -23,19 +23,11 @@ import java.util.stream.Collectors;
 @Service
 public class CustomerService implements ICustomerService {
 
-    private final String HR_EMPLOYEE_API = "http://hr-service/employees/";
-
     @Autowired
     private CustomerDao customerDao;
 
     @Autowired
-    private RestTemplate restTemplate;
-
-    @Autowired
     private OrderDao orderDao;
-
-    @Autowired
-    private JwtConfig jwtConfig;
 
     @Override
     public List<CustomerResponse> getAllCustomer(CustomerSpec customerSpec) {
@@ -66,23 +58,6 @@ public class CustomerService implements ICustomerService {
     private CustomerResponse convertEntityToDTO(CustomerEntity entity) {
         CustomerResponse response = new CustomerResponse();
         BeanUtils.copyProperties(entity, response);
-        HttpEntity httpEntity = RestUtils.createHttpHeaderEntity(jwtConfig);
-        if (entity.getTeleSaleId() != null) {
-            SaleResponse teleSale = restTemplate.exchange(HR_EMPLOYEE_API + entity.getTeleSaleId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setTeleSale(teleSale);
-        }
-        if (entity.getSaleId() != null) {
-            SaleResponse sale = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setSale(sale);
-        }
-        if (entity.getSaleAdminId() != null) {
-            SaleResponse saleAdmin = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleAdminId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setSaleAdmin(saleAdmin);
-        }
-        if (entity.getSaleManagerId() != null) {
-            SaleResponse saleManager = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleManagerId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setSaleManager(saleManager);
-        }
         return response;
     }
 }

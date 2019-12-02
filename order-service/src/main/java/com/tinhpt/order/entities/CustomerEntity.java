@@ -21,8 +21,4 @@ public class CustomerEntity extends AuditEntity {
     private String phone;
     private String address1;
     private String address2;
-    private Long teleSaleId;
-    private Long saleId;
-    private Long saleAdminId;
-    private Long saleManagerId;
 }

@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: 10020191127-9
+      id: 10020191129-15
       author: tinh
       comment: Insert Card Type
       runOnChange: true
@@ -9,7 +9,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 13
+                  value: 1
               - column:
                   name: name
                   value: 25 năm
@@ -22,7 +22,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 14
+                  value: 2
               - column:
                   name: name
                   value: 50 năm
@@ -32,7 +32,7 @@ databaseChangeLog:
             schemaName: public
             tableName: card_type
   - changeSet:
-      id: 10020191127-10
+      id: 10020191129-16
       author: tinh
       comment: Insert Room Type
       runOnChange: true
@@ -41,7 +41,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 15
+                  value: 3
               - column:
                   name: name
                   value: 01 phòng ngủ
@@ -51,14 +51,14 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 16
+                  value: 4
               - column:
                   name: name
                   value: 02 phòng ngủ
             schemaName: public
             tableName: room_type
   - changeSet:
-      id: 10020191127-11
+      id: 10020191129-17
       author: tinh
       comment: Insert Season Type
       runOnChange: true
@@ -67,7 +67,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 17
+                  value: 5
               - column:
                   name: name
                   value: Mùa thấp điểm
@@ -77,14 +77,14 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 18
+                  value: 6
               - column:
                   name: name
                   value: Mùa cao điểm
             schemaName: public
             tableName: season_type
   - changeSet:
-      id: 10020191127-12
+      id: 10020191129-18
       author: tinh
       comment: Insert Card Detail
       runOnChange: true
@@ -93,7 +93,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 19
+                  value: 7
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -108,20 +108,20 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 13
+                  value: 1
               - column:
                   name: room_type_id
-                  value: 15
+                  value: 3
               - column:
                   name: season_type_id
-                  value: 17
+                  value: 5
             schemaName: public
             tableName: card_detail
         - insert:
             columns:
               - column:
                   name: id
-                  value: 20
+                  value: 8
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -136,20 +136,20 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 13
+                  value: 1
               - column:
                   name: room_type_id
-                  value: 15
+                  value: 3
               - column:
                   name: season_type_id
-                  value: 18
+                  value: 6
             schemaName: public
             tableName: card_detail
         - insert:
             columns:
               - column:
                   name: id
-                  value: 21
+                  value: 9
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -164,20 +164,20 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 13
+                  value: 1
               - column:
                   name: room_type_id
-                  value: 16
+                  value: 4
               - column:
                   name: season_type_id
-                  value: 17
+                  value: 5
             schemaName: public
             tableName: card_detail
         - insert:
             columns:
               - column:
                   name: id
-                  value: 22
+                  value: 10
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -192,20 +192,20 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 13
+                  value: 1
               - column:
                   name: room_type_id
-                  value: 16
+                  value: 4
               - column:
                   name: season_type_id
-                  value: 18
+                  value: 6
             schemaName: public
             tableName: card_detail
         - insert:
             columns:
               - column:
                   name: id
-                  value: 23
+                  value: 11
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -220,20 +220,20 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 14
+                  value: 2
               - column:
                   name: room_type_id
-                  value: 15
+                  value: 3
               - column:
                   name: season_type_id
-                  value: 17
+                  value: 5
             schemaName: public
             tableName: card_detail
         - insert:
             columns:
               - column:
                   name: id
-                  value: 24
+                  value: 12
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -248,20 +248,20 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 14
+                  value: 2
               - column:
                   name: room_type_id
-                  value: 15
+                  value: 3
               - column:
                   name: season_type_id
-                  value: 18
+                  value: 6
             schemaName: public
             tableName: card_detail
         - insert:
             columns:
               - column:
                   name: id
-                  value: 25
+                  value: 13
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -276,20 +276,20 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 14
+                  value: 2
               - column:
                   name: room_type_id
-                  value: 16
+                  value: 4
               - column:
                   name: season_type_id
-                  value: 17
+                  value: 5
             schemaName: public
             tableName: card_detail
         - insert:
             columns:
               - column:
                   name: id
-                  value: 26
+                  value: 14
               - column:
                   name: name
                   value: Kỳ nghỉ 07 đêm tiêu chuẩn 5*
@@ -304,17 +304,17 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 14
+                  value: 2
               - column:
                   name: room_type_id
-                  value: 16
+                  value: 4
               - column:
                   name: season_type_id
-                  value: 18
+                  value: 6
             schemaName: public
             tableName: card_detail
   - changeSet:
-      id: 10020191127-13
+      id: 10020191129-19
       author: tinh
       comment: Insert Customer
       runOnChange: true
@@ -323,7 +323,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 1
+                  value: 15
               - column:
                   name: name
                   value: Phạm Trung Tính
@@ -336,22 +336,13 @@ databaseChangeLog:
               - column:
                   name: address2
                   value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
-              - column:
-                  name: sale_id
-                  value: 11
-              - column:
-                  name: sale_admin_id
-                  value: 12
-              - column:
-                  name: sale_manager_id
-                  value: 13
             tableName: customer
             schemaName: public
         - insert:
             columns:
               - column:
                   name: id
-                  value: 2
+                  value: 16
               - column:
                   name: name
                   value: Cao Thị Lan
@@ -364,6 +355,40 @@ databaseChangeLog:
               - column:
                   name: address2
                   value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
+            tableName: customer
+            schemaName: public
+  - changeSet:
+      id: 10020191129-20
+      author: tinh
+      comment: Insert Orders
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 17
+              - column:
+                  name: date
+                  value: now()
+              - column:
+                  name: status
+                  value: PAYING
+              - column:
+                  name: contract_value
+                  value: 500000000
+              - column:
+                  name: contract_value_vat
+                  value: 550000000
+              - column:
+                  name: discount
+                  value: 7
+              - column:
+                  name: customer_id
+                  value: 15
+              - column:
+                  name: card_detail_id
+                  value: 7
               - column:
                   name: sale_id
                   value: 11
@@ -373,158 +398,84 @@ databaseChangeLog:
               - column:
                   name: sale_manager_id
                   value: 13
-            tableName: customer
-            schemaName: public
-  - changeSet:
-      id: 10020191127-14
-      author: tinh
-      comment: Insert Orders
-      runOnChange: true
-      changes:
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 3
-              - column:
-                  name: order_date
-                  value: now()
-              - column:
-                  name: status
-                  value: SUCCESS
-              - column:
-                  name: customer_id
-                  value: 1
             schemaName: public
             tableName: orders
         - insert:
             columns:
               - column:
                   name: id
-                  value: 4
+                  value: 18
               - column:
-                  name: order_date
+                  name: date
                   value: now()
               - column:
                   name: status
-                  value: PENDING
+                  value: PAYING
               - column:
-                  name: customer_id
-                  value: 1
-            schemaName: public
-            tableName: orders
-        - insert:
-            columns:
+                  name: contract_value
+                  value: 300000000
               - column:
-                  name: id
+                  name: contract_value_vat
+                  value: 330000000
+              - column:
+                  name: discount
                   value: 5
               - column:
-                  name: order_date
-                  value: now()
-              - column:
-                  name: status
-                  value: SUCCESS
-              - column:
                   name: customer_id
-                  value: 2
-            schemaName: public
-            tableName: orders
-  - changeSet:
-      id: 10020191127-15
-      author: tinh
-      comment: Insert Order Detail
-      runOnChange: true
-      changes:
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 6
-              - column:
-                  name: deposit_date
-                  value: now()
-              - column:
-                  name: contract_value
-                  value: 265650000
-              - column:
-                  name: contract_value_vat
-                  value: 292215000
-              - column:
-                  name: order_id
-                  value: 3
+                  value: 15
               - column:
                   name: card_detail_id
-                  value: 19
-            schemaName: public
-            tableName: order_detail
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 7
-              - column:
-                  name: deposit_date
-                  value: now()
-              - column:
-                  name: contract_value
-                  value: 478170000
-              - column:
-                  name: contract_value_vat
-                  value: 525987000
-              - column:
-                  name: order_id
-                  value: 3
-              - column:
-                  name: card_detail_id
-                  value: 21
-            schemaName: public
-            tableName: order_detail
-        - insert:
-            columns:
-              - column:
-                  name: id
                   value: 8
               - column:
-                  name: deposit_date
-                  value: now()
+                  name: sale_id
+                  value: 11
               - column:
-                  name: contract_value
-                  value: 738990000
+                  name: sale_admin_id
+                  value: 12
               - column:
-                  name: contract_value_vat
-                  value: 812889000
-              - column:
-                  name: order_id
-                  value: 4
-              - column:
-                  name: card_detail_id
-                  value: 25
+                  name: sale_manager_id
+                  value: 13
             schemaName: public
-            tableName: order_detail
+            tableName: orders
         - insert:
             columns:
               - column:
                   name: id
-                  value: 9
+                  value: 19
               - column:
-                  name: deposit_date
+                  name: date
                   value: now()
               - column:
+                  name: status
+                  value: PAYING
+              - column:
                   name: contract_value
-                  value: 825930000
+                  value: 400000000
               - column:
                   name: contract_value_vat
-                  value: 908523000
+                  value: 440000000
               - column:
-                  name: order_id
-                  value: 5
+                  name: discount
+                  value: 3
+              - column:
+                  name: customer_id
+                  value: 16
               - column:
                   name: card_detail_id
-                  value: 26
+                  value: 9
+              - column:
+                  name: sale_id
+                  value: 11
+              - column:
+                  name: sale_admin_id
+                  value: 12
+              - column:
+                  name: sale_manager_id
+                  value: 13
             schemaName: public
-            tableName: order_detail
+            tableName: orders
   - changeSet:
-      id: 10020191127-16
+      id: 10020191129-21
       author: tinh
       comment: Insert Payment Histories
       runOnChange: true
@@ -533,7 +484,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 10
+                  value: 20
               - column:
                   name: date
                   value: now()
@@ -544,8 +495,8 @@ databaseChangeLog:
                   name: value_vat
                   value: 22000000
               - column:
-                  name: order_detail_id
-                  value: 6
+                  name: order_id
+                  value: 17
               - column:
                   name: type
                   value: CASH
@@ -555,7 +506,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 11
+                  value: 21
               - column:
                   name: date
                   value: now()
@@ -566,8 +517,8 @@ databaseChangeLog:
                   name: value_vat
                   value: 55000000
               - column:
-                  name: order_detail_id
-                  value: 6
+                  name: order_id
+                  value: 17
               - column:
                   name: type
                   value: Credit Card
@@ -577,7 +528,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 12
+                  value: 22
               - column:
                   name: date
                   value: now()
@@ -588,8 +539,8 @@ databaseChangeLog:
                   name: value_vat
                   value: 33000000
               - column:
-                  name: order_detail_id
-                  value: 9
+                  name: order_id
+                  value: 18
               - column:
                   name: type
                   value: ATM

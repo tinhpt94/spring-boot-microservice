@@ -17,12 +17,21 @@ public class OrderEntity extends AuditEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private LocalDateTime orderDate;
-
+    private LocalDateTime date;
     private String status;
-
     private String comment;
 
     @ManyToOne
     private CustomerEntity customer;
+
+    private Long teleSaleId;
+    private Long saleId;
+    private Long saleAdminId;
+    private Long saleManagerId;
+    private Integer discount;
+    private Long contractValue;
+    private Long contractValueVat;
+
+    @ManyToOne
+    private CardDetailEntity cardDetail;
 }
