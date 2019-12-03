@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IOrderService {
     List<OrderResponse> findOrderByCustomerId(Long customerId);
+    OrderResponse findById(Long id);
+    List<OrderResponse> findAll();
 }

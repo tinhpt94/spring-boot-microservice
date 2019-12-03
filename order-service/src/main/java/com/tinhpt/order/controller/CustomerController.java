@@ -28,14 +28,8 @@ public class CustomerController {
     private IOrderService orderService;
 
     @ApiOperation("Return list of customers")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "teleSaleId", value = "Tele Sale Id", dataType = "long", example = "1", paramType = "query"),
-            @ApiImplicitParam(name = "saleId", value = "Sale Id", dataType = "long", example = "2", paramType = "query"),
-            @ApiImplicitParam(name = "saleAdminId", value = "Sale Admin Id", dataType = "long", example = "3", paramType = "query"),
-            @ApiImplicitParam(name = "saleManagerId", value = "Sale Manager Id", dataType = "long", example = "4", paramType = "query")
-    })
     @GetMapping
-    public ResponseEntity<List<CustomerResponse>> getAllCustomer(@ApiParam CustomerSpec customerSpec) {
+    public ResponseEntity<List<CustomerResponse>> getAllCustomer(CustomerSpec customerSpec) {
         return ResponseEntity.ok(customerService.getAllCustomer(customerSpec));
     }
 

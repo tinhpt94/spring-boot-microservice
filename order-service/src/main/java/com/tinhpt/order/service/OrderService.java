@@ -40,6 +40,16 @@ public class OrderService implements IOrderService {
                 (this::mapEntityToDTO).collect(Collectors.toList());
     }
 
+    @Override
+    public OrderResponse findById(Long id) {
+        return mapEntityToDTO(orderDao.findById(id).orElseThrow(() -> new RuntimeException("Can not find order")));
+    }
+
+    @Override
+    public List<OrderResponse> findAll() {
+        return orderDao.findAll().stream().map(this::mapEntityToDTO).collect(Collectors.toList());
+    }
+
     private OrderResponse mapEntityToDTO(OrderEntity entity) {
         OrderResponse response = new OrderResponse();
         BeanUtils.copyProperties(entity, response);
