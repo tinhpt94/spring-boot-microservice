@@ -9,7 +9,7 @@ public class StringUtil {
         String noneWhiteSpaceString = StringUtils.deleteWhitespace(inputString);
         return Normalizer
                 .normalize(noneWhiteSpaceString, Normalizer.Form.NFD)
-                .replace("đ", "d").replace("Đ", "D")
+                .replaceAll("đ", "d").replaceAll("Đ", "D")
                 .replaceAll("[^\\p{ASCII}]", "");
     }
 }

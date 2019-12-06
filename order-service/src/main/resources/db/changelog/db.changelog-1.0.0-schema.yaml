@@ -390,3 +390,15 @@ databaseChangeLog:
                   referencedColumnNames: id
                   referencedTableName: orders
                   validate: true
+  - changeSet:
+      id: 10020191206-1
+      author: tinh
+      runOnChange: true
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: status
+                  type: varchar(255)
+            schemaName: public
+            tableName: payment_history

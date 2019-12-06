@@ -36,9 +36,9 @@ public class EmployeeController {
 
     @PostMapping
     public ResponseEntity createFakeEmployeedata() {
-        //fakerService.createTeleSale();
-        //fakerService.createSale();
-        //fakerService.createSaleAdmin();
+        fakerService.createTeleSale();
+        fakerService.createSale();
+        fakerService.createSaleAdmin();
         fakerService.createSaleManager();
         return ResponseEntity.ok("Created");
     }

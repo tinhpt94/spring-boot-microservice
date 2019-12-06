@@ -28,6 +28,8 @@ spring:
       enabled: true
     livereload:
       port: 35730
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
 server:
   port: 8200
 eureka:

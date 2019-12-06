@@ -9,5 +9,4 @@ import java.util.List;
 public interface ICustomerService {
     List<CustomerResponse> getAllCustomer(CustomerSpec customerSpec);
     CustomerResponse findById(Long id);
-    List<OrderResponse> findByCustomerId(Long customerId);
 }

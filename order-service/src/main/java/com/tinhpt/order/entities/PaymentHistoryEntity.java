@@ -27,6 +27,8 @@ public class PaymentHistoryEntity extends AuditEntity {
 
     private String type;
 
+    private String status;
+
     @ManyToOne
     private OrderEntity order;
 }

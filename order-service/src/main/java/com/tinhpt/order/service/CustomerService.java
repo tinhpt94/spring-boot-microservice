@@ -44,17 +44,6 @@ public class CustomerService implements ICustomerService {
         return convertEntityToDTO(customerEntity);
     }
 
-    @Override
-    public List<OrderResponse> findByCustomerId(Long customerId) {
-        return orderDao.findByCustomer(findCustomerById(customerId)).stream().map(this::convertOrderEntityToDTO).collect(Collectors.toList());
-    }
-
-    private OrderResponse convertOrderEntityToDTO(OrderEntity entity) {
-        OrderResponse response = new OrderResponse();
-        BeanUtils.copyProperties(entity, response);
-        return response;
-    }
-
     private CustomerResponse convertEntityToDTO(CustomerEntity entity) {
         CustomerResponse response = new CustomerResponse();
         BeanUtils.copyProperties(entity, response);

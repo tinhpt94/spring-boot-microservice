@@ -14,4 +14,5 @@ public class PaymentResponse {
     private Long valueVat;
     private String comment;
     private String type;
+    private String status;
 }

@@ -4,9 +4,11 @@ import com.github.javafaker.Faker;
 import com.tinhpt.order.entities.CardDetailEntity;
 import com.tinhpt.order.entities.CustomerEntity;
 import com.tinhpt.order.entities.OrderEntity;
+import com.tinhpt.order.entities.PaymentHistoryEntity;
 import com.tinhpt.order.repository.CardDetailDao;
 import com.tinhpt.order.repository.CustomerDao;
 import com.tinhpt.order.repository.OrderDao;
+import com.tinhpt.order.repository.PaymentHistoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,9 @@ public class FakerService implements IFakerService {
 
     @Autowired
     private OrderDao orderDao;
+
+    @Autowired
+    private PaymentHistoryDao paymentHistoryDao;
 
     private Faker faker = new Faker();
 
@@ -62,6 +67,29 @@ public class FakerService implements IFakerService {
             int statusInt = faker.random().nextInt(0, 100);
             entity.setStatus(statusInt < 30 ? "CANCEL" : statusInt < 60 ? "PAYING" : "PAID");
             orderDao.save(entity);
+        }
+    }
+
+    @Override
+    public void fakePaymentData() {
+        for (int i = 0; i < 50; i++) {
+            PaymentHistoryEntity paymentHistoryEntity = new PaymentHistoryEntity();
+            paymentHistoryEntity.setDate(
+                    LocalDateTime.of(2019,
+                            faker.random().nextInt(1, 12),
+                            faker.random().nextInt(1, 28),
+                            faker.random().nextInt(0, 23),
+                            faker.random().nextInt(0, 59))
+            );
+            OrderEntity orderEntity = orderDao.findById(Long.valueOf(faker.random().nextInt(1050, 1199))).get();
+            Long paymentValue = faker.random().nextLong(orderEntity.getContractValue());
+            paymentHistoryEntity.setValue(paymentValue);
+            paymentHistoryEntity.setValueVat((long) (paymentValue * 1.1));
+            paymentHistoryEntity.setOrder(orderEntity);
+            int status = faker.random().nextInt(0, 100);
+            paymentHistoryEntity.setType(status < 30 ? "Tiền mặt" : status < 60 ? "Chuyển khoản" : "Thẻ ghi nợ");
+            paymentHistoryEntity.setStatus(status < 30 ? "Tạo khoản thu" : status < 60 ? "Kiểm tra khoản thu" : "Xác nhận khoản thu");
+            paymentHistoryDao.save(paymentHistoryEntity);
         }
     }
 }

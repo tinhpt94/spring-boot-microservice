@@ -6,6 +6,7 @@ import com.tinhpt.order.dto.SaleResponse;
 import com.tinhpt.order.entities.OrderEntity;
 import com.tinhpt.order.repository.CustomerDao;
 import com.tinhpt.order.repository.OrderDao;
+import com.tinhpt.order.specification.OrderSpec;
 import com.tinhpt.order.utils.RestUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
