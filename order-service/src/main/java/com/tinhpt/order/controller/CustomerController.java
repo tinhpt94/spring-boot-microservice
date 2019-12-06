@@ -1,8 +1,10 @@
 package com.tinhpt.order.controller;
 
+import com.netflix.discovery.converters.Auto;
 import com.tinhpt.order.dto.CustomerResponse;
 import com.tinhpt.order.dto.OrderResponse;
 import com.tinhpt.order.service.ICustomerService;
+import com.tinhpt.order.service.IFakerService;
 import com.tinhpt.order.service.IOrderService;
 import com.tinhpt.order.specification.CustomerSpec;
 import io.swagger.annotations.*;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +29,9 @@ public class CustomerController {
 
     @Autowired
     private IOrderService orderService;
+
+    @Autowired
+    private IFakerService fakerService;
 
     @ApiOperation("Return list of customers")
     @GetMapping
@@ -43,5 +49,12 @@ public class CustomerController {
     @GetMapping("/{id}/orders")
     public ResponseEntity<List<OrderResponse>> findOrderByCustomerId(@PathVariable("id") Long customerId) {
         return ResponseEntity.ok(orderService.findOrderByCustomerId(customerId));
+    }
+
+    @ApiOperation("Fake customer data")
+    @PostMapping()
+    public ResponseEntity fakeCustomerData() {
+        fakerService.fakeCustomerData();
+        return ResponseEntity.ok("Create 50 customers");
     }
 }

@@ -1,6 +1,7 @@
 package com.tinhpt.hr.controllers;
 
 import com.tinhpt.hr.services.IEmployeeService;
+import com.tinhpt.hr.services.IFakerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
@@ -13,6 +14,9 @@ public class EmployeeController {
 
     @Autowired
     private IEmployeeService userService;
+
+    @Autowired
+    private IFakerService fakerService;
 
     @Secured("ROLE_HR_ADMIN")
     @RequestMapping(method = RequestMethod.POST, consumes = { "multipart/form-data" })
@@ -28,5 +32,14 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public ResponseEntity<EmployeeResponse> getCurrentUser(@PathVariable("id") Long id) {
         return  ResponseEntity.ok(userService.findById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity createFakeEmployeedata() {
+        //fakerService.createTeleSale();
+        //fakerService.createSale();
+        //fakerService.createSaleAdmin();
+        fakerService.createSaleManager();
+        return ResponseEntity.ok("Created");
     }
 }
