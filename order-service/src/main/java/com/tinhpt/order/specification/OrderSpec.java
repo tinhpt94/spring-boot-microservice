@@ -11,7 +11,8 @@ import org.springframework.data.jpa.domain.Specification;
         @Spec(path = "saleId", params = "saleId", spec = Equal.class),
         @Spec(path = "saleAdminId", params = "saleAdminId", spec = Equal.class),
         @Spec(path = "saleManagerId", params = "saleManagerId", spec = Equal.class),
-        @Spec(path = "customer.id", params = "saleManagerId", spec = Equal.class),
+        @Spec(path = "customer.id", params = "customerId", spec = Equal.class),
+        @Spec(path = "cardDetail.id", params = "cardDetailId", spec = Equal.class),
 })
 public interface OrderSpec extends Specification<OrderEntity> {
 }

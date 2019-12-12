@@ -10,6 +10,8 @@ import com.tinhpt.order.specification.OrderSpec;
 import com.tinhpt.order.utils.RestUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -47,8 +49,8 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public List<OrderResponse> findAll() {
-        return orderDao.findAll().stream().map(this::mapEntityToDTO).collect(Collectors.toList());
+    public Page<OrderResponse> findAll(OrderSpec specs, Pageable pageable) {
+        return orderDao.findAll(specs, pageable).map(this::mapEntityToDTO);
     }
 
     private OrderResponse mapEntityToDTO(OrderEntity entity) {
