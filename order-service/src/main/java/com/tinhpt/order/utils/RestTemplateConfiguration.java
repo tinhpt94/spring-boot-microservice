@@ -1,6 +1,6 @@
 package com.tinhpt.order.utils;
 
-import com.tinhpt.common.security.JwtConfig;
+import com.tinhpt.order.config.JwtConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

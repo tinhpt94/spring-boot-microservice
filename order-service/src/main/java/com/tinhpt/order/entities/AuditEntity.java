@@ -1,6 +1,6 @@
 package com.tinhpt.order.entities;
 
-import com.tinhpt.common.utils.AuditHelper;
+import com.tinhpt.order.utils.AuditHelper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

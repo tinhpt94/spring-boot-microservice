@@ -12,6 +12,146 @@ databaseChangeLog:
             schemaName: public
             sequenceName: hibernate_sequence
   - changeSet:
+      id: 10020191125-2
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: employee_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: encrypted_password
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    unique: true
+                    uniqueConstraintName: uk_r43af9ap4edm43mmtq01oddj6
+                  name: username
+                  type: VARCHAR(255)
+              - column:
+                  name: role_id
+                  type: BIGINT
+              - column:
+                  name: department_id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: address
+                  type: VARCHAR(255)
+              - column:
+                  name: image_url
+                  type: VARCHAR(255)
+              - column:
+                  name: dob
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: employee
+  - changeSet:
+      id: 10020191125-3
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: role_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: job_title
+                  type: VARCHAR(255)
+            tableName: role
+  - changeSet:
+      id: 10020191125-4
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: role_id
+            baseTableName: employee
+            constraintName: fk4qu1gr772nnf6ve5af002rwya
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: role
+            validate: true
+  - changeSet:
+      id: 10020191125-5
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: department_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    unique: true
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: department
+            schema: public
+  - changeSet:
+      id: 10020191125-6
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: department_id
+            baseTableName: employee
+            constraintName: fk_department_employee
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: department
+            validate: true
+  - changeSet:
       id: 10020191129-2
       author: tinh
       runOnChange: true
@@ -298,23 +438,87 @@ databaseChangeLog:
                   type: VARCHAR(255)
             tableName: orders
   - changeSet:
-            id: 10020191129-11
-            author: tinh
-            runOnChange: true
-            changes:
-              - addForeignKeyConstraint:
-                  baseColumnNames: customer_id
-                  baseTableName: orders
-                  constraintName: fk_order_customer
-                  deferrable: false
-                  initiallyDeferred: false
-                  onDelete: NO ACTION
-                  onUpdate: NO ACTION
-                  referencedColumnNames: id
-                  referencedTableName: customer
-                  validate: true
+      id: 10020191129-11
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: customer_id
+            baseTableName: orders
+            constraintName: fk_order_customer
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: employee
+            validate: true
   - changeSet:
       id: 10020191129-12
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: tele_sale_id
+            baseTableName: orders
+            constraintName: fk_order_employee_tele_sale
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: employee
+            validate: true
+  - changeSet:
+      id: 10020191129-13
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: sale_id
+            baseTableName: orders
+            constraintName: fk_order_employee_sale
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: employee
+            validate: true
+  - changeSet:
+      id: 10020191129-14
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: sale_admin_id
+            baseTableName: orders
+            constraintName: fk_order_employee_sale_admin
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: employee
+            validate: true
+  - changeSet:
+      id: 10020191129-15
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: sale_manager_id
+            baseTableName: orders
+            constraintName: fk_order_employee_sale_manager
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: employee
+            validate: true
+  - changeSet:
+      id: 10020191129-16
       author: tinh
       runOnChange: true
       changes:
@@ -330,66 +534,66 @@ databaseChangeLog:
             referencedTableName: card_detail
             validate: true
   - changeSet:
-            id: 10020191129-13
-            author: tinh
-            runOnChange: true
-            changes:
-              - createTable:
-                  columns:
-                    - column:
-                        constraints:
-                          primaryKey: true
-                          primaryKeyName: payment_history_pkey
-                        name: id
-                        type: BIGINT
-                    - column:
-                        name: order_id
-                        type: BIGINT
-                    - column:
-                        name: date
-                        type: TIMESTAMP WITHOUT TIME ZONE
-                    - column:
-                        name: value
-                        type: BIGINT
-                    - column:
-                        name: value_vat
-                        type: BIGINT
-                    - column:
-                        name: type
-                        type: VARCHAR(255)
-                    - column:
-                        name: comment
-                        type: VARCHAR(255)
-                    - column:
-                        name: created_on
-                        type: TIMESTAMP WITHOUT TIME ZONE
-                    - column:
-                        name: created_by
-                        type: VARCHAR(255)
-                    - column:
-                        name: modified_on
-                        type: TIMESTAMP WITHOUT TIME ZONE
-                    - column:
-                        name: modified_by
-                        type: VARCHAR(255)
-                  tableName: payment_history
-                  schema: public
+      id: 10020191129-17
+      author: tinh
+      runOnChange: true
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: payment_history_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: order_id
+                  type: BIGINT
+              - column:
+                  name: date
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: value
+                  type: BIGINT
+              - column:
+                  name: value_vat
+                  type: BIGINT
+              - column:
+                  name: type
+                  type: VARCHAR(255)
+              - column:
+                  name: comment
+                  type: VARCHAR(255)
+              - column:
+                  name: created_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+              - column:
+                  name: modified_on
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: modified_by
+                  type: VARCHAR(255)
+            tableName: payment_history
+            schema: public
   - changeSet:
-            id: 10020191129-14
-            author: tinh
-            runOnChange: true
-            changes:
-              - addForeignKeyConstraint:
-                  baseColumnNames: order_id
-                  baseTableName: payment_history
-                  constraintName: fk_order_payment_history
-                  deferrable: false
-                  initiallyDeferred: false
-                  onDelete: NO ACTION
-                  onUpdate: NO ACTION
-                  referencedColumnNames: id
-                  referencedTableName: orders
-                  validate: true
+      id: 10020191129-18
+      author: tinh
+      runOnChange: true
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: payment_history
+            constraintName: fk_order_payment_history
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: orders
+            validate: true
   - changeSet:
       id: 10020191206-1
       author: tinh

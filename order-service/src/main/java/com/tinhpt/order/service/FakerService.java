@@ -1,15 +1,10 @@
 package com.tinhpt.order.service;
 
 import com.github.javafaker.Faker;
-import com.tinhpt.order.entities.CardDetailEntity;
-import com.tinhpt.order.entities.CustomerEntity;
-import com.tinhpt.order.entities.OrderEntity;
-import com.tinhpt.order.entities.PaymentHistoryEntity;
-import com.tinhpt.order.repository.CardDetailDao;
-import com.tinhpt.order.repository.CustomerDao;
-import com.tinhpt.order.repository.OrderDao;
-import com.tinhpt.order.repository.PaymentHistoryDao;
+import com.tinhpt.order.entities.*;
+import com.tinhpt.order.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -60,10 +55,10 @@ public class FakerService implements IFakerService {
                             faker.random().nextInt(0, 59))
             );
             entity.setDiscount(faker.random().nextInt(0, 7));
-            entity.setTeleSaleId(Long.valueOf(faker.random().nextInt(1000, 1049)));
-            entity.setSaleId(Long.valueOf(faker.random().nextInt(1050, 1099)));
-            entity.setSaleAdminId(Long.valueOf(faker.random().nextInt(1100, 1149)));
-            entity.setSaleManagerId(Long.valueOf(faker.random().nextInt(1150, 1199)));
+            entity.setTeleSale(employeeDao.findById(Long.valueOf(faker.random().nextInt(1000, 1049))).get());
+            entity.setSale(employeeDao.findById(Long.valueOf(faker.random().nextInt(1050, 1099))).get());
+            entity.setSaleAdmin(employeeDao.findById(Long.valueOf(faker.random().nextInt(1100, 1149))).get());
+            entity.setSaleManager(employeeDao.findById(Long.valueOf(faker.random().nextInt(1150, 1199))).get());
             int statusInt = faker.random().nextInt(0, 100);
             entity.setStatus(statusInt < 30 ? "CANCEL" : statusInt < 60 ? "PAYING" : "PAID");
             orderDao.save(entity);
@@ -90,6 +85,62 @@ public class FakerService implements IFakerService {
             paymentHistoryEntity.setType(status < 30 ? "Tiền mặt" : status < 60 ? "Chuyển khoản" : "Thẻ ghi nợ");
             paymentHistoryEntity.setStatus(status < 30 ? "Tạo khoản thu" : status < 60 ? "Kiểm tra khoản thu" : "Xác nhận khoản thu");
             paymentHistoryDao.save(paymentHistoryEntity);
+        }
+    }
+
+    @Autowired
+    private RoleDao roleDao;
+
+    @Autowired
+    private DepartmentDao departmentDao;
+
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+
+    @Autowired
+    private EmployeeDao employeeDao;
+
+    @Override
+    public void createTeleSale() {
+        RoleEntity roleEntity = roleDao.findByNameIgnoreCase("TELE_SALE").get();
+        createFakeEmployee(roleEntity);
+    }
+
+    @Override
+    public void createSale() {
+        RoleEntity roleEntity = roleDao.findByNameIgnoreCase("SALE").get();
+        createFakeEmployee(roleEntity);
+    }
+
+    @Override
+    public void createSaleAdmin() {
+        RoleEntity roleEntity = roleDao.findByNameIgnoreCase("SALE_ADMIN").get();
+        createFakeEmployee(roleEntity);
+    }
+
+    @Override
+    public void createSaleManager() {
+        RoleEntity roleEntity = roleDao.findByNameIgnoreCase("SALE_MANAGER").get();
+        createFakeEmployee(roleEntity);
+    }
+
+    private void createFakeEmployee(RoleEntity roleEntity) {
+        DepartmentEntity departmentEntity = departmentDao.findById(8L).get();
+        for (int i = 0; i < 50; i++) {
+            EmployeeEntity entity = new EmployeeEntity();
+            entity.setName(faker.name().fullName());
+            entity.setUsername(faker.name().username() + "@crystal-holiday.com");
+            entity.setDepartment(departmentEntity);
+            entity.setRole(roleEntity);
+            entity.setAddress(faker.address().fullAddress());
+            entity.setDob(LocalDateTime.of(
+                    faker.random().nextInt(1970, 2000),
+                    faker.random().nextInt(1, 12),
+                    faker.random().nextInt(1, 28),
+                    faker.random().nextInt(0, 23),
+                    faker.random().nextInt(0, 59)));
+            entity.setEncryptedPassword(encoder.encode("12345"));
+            employeeDao.save(entity);
         }
     }
 }

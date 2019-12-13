@@ -1,6 +1,294 @@
 databaseChangeLog:
   - changeSet:
-      id: 10020191129-15
+      id: 10020191125-7
+      author: tinh
+      comment: Insert Roles
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: HR_ADMIN
+              - column:
+                  name: job_title
+                  value: Human Resource Admin
+            schemaName: public
+            tableName: role
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: name
+                  value: SALE
+              - column:
+                  name: job_title
+                  value: SALE
+            schemaName: public
+            tableName: role
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: name
+                  value: SALE_ADMIN
+              - column:
+                  name: job_title
+                  value: SALE ADMIN
+            schemaName: public
+            tableName: role
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: name
+                  value: SALE_MANAGER
+              - column:
+                  name: job_title
+                  value: SALE MANAGER
+            schemaName: public
+            tableName: role
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: name
+                  value: ACT_COMMISSION
+              - column:
+                  name: job_title
+                  value: ACCOUNTING COMMISION
+            schemaName: public
+            tableName: role
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 6
+              - column:
+                  name: name
+                  value: ACT_ASSETS
+              - column:
+                  name: job_title
+                  value: ACCOUNTING ASSETS
+            schemaName: public
+            tableName: role
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 7
+              - column:
+                  name: name
+                  value: TELE_SALE
+              - column:
+                  name: job_title
+                  value: TELE SALE
+            schemaName: public
+            tableName: role
+  - changeSet:
+      id: 10020191125-8
+      author: tinh
+      comment: Insert Departments
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 7
+              - column:
+                  name: name
+                  value: Human Resource
+              - column:
+                  name: description
+                  value: Company Resource Management
+            schemaName: public
+            tableName: department
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 8
+              - column:
+                  name: name
+                  value: SALE
+              - column:
+                  name: description
+                  value: Product Sale Department
+            schemaName: public
+            tableName: department
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 9
+              - column:
+                  name: name
+                  value: ACCOUNTING
+              - column:
+                  name: description
+                  value: Accounting Department
+            schemaName: public
+            tableName: department
+  - changeSet:
+      id: 10020191125-9
+      author: tinh
+      comment: Insert Employees
+      runOnChange: true
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 10
+              - column:
+                  name: username
+                  value: lan@crystal-holiday.com
+              - column:
+                  name: name
+                  value: Cao Thị Lan
+              - column:
+                  name: encrypted_password
+                  value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+              - column:
+                  name: role_id
+                  value: 5
+              - column:
+                  name: department_id
+                  value: 9
+              - column:
+                  name: created_by
+                  value: administrator
+              - column:
+                  name: created_on
+                  value: now()
+            schemaName: public
+            tableName: employee
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 11
+              - column:
+                  name: username
+                  value: sale@crystal-holiday.com
+              - column:
+                  name: name
+                  value: Sale
+              - column:
+                  name: encrypted_password
+                  value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+              - column:
+                  name: role_id
+                  value: 2
+              - column:
+                  name: department_id
+                  value: 8
+              - column:
+                  name: created_by
+                  value: administrator
+              - column:
+                  name: created_on
+                  value: now()
+            schemaName: public
+            tableName: employee
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 12
+              - column:
+                  name: username
+                  value: sale-admin@crystal-holiday.com
+              - column:
+                  name: name
+                  value: Sale Admin
+              - column:
+                  name: encrypted_password
+                  value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+              - column:
+                  name: role_id
+                  value: 3
+              - column:
+                  name: department_id
+                  value: 8
+              - column:
+                  name: created_by
+                  value: administrator
+              - column:
+                  name: created_on
+                  value: now()
+            schemaName: public
+            tableName: employee
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 13
+              - column:
+                  name: username
+                  value: sale-manager@crystal-holiday.com
+              - column:
+                  name: name
+                  value: Sale Manager
+              - column:
+                  name: encrypted_password
+                  value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+              - column:
+                  name: role_id
+                  value: 4
+              - column:
+                  name: department_id
+                  value: 8
+              - column:
+                  name: created_by
+                  value: administrator
+              - column:
+                  name: created_on
+                  value: now()
+            schemaName: public
+            tableName: employee
+        - insert:
+            columns:
+              - column:
+                  name: id
+                  value: 14
+              - column:
+                  name: username
+                  value: assets@crystal-holiday.com
+              - column:
+                  name: name
+                  value: Assets Manager
+              - column:
+                  name: encrypted_password
+                  value: $2b$10$/PdXc5Mgr4P05/tmbfG.6uQAxqM8iHVlE7LjrMpKMUvr0f69t8utC
+              - column:
+                  name: role_id
+                  value: 6
+              - column:
+                  name: department_id
+                  value: 9
+              - column:
+                  name: created_by
+                  value: administrator
+              - column:
+                  name: created_on
+                  value: now()
+            schemaName: public
+            tableName: employee
+  - changeSet:
+      id: 10020191129-19
       author: tinh
       comment: Insert Card Type
       runOnChange: true
@@ -9,7 +297,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 1
+                  value: 10
               - column:
                   name: name
                   value: 25 năm
@@ -22,7 +310,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 2
+                  value: 11
               - column:
                   name: name
                   value: 50 năm
@@ -32,7 +320,7 @@ databaseChangeLog:
             schemaName: public
             tableName: card_type
   - changeSet:
-      id: 10020191129-16
+      id: 10020191129-20
       author: tinh
       comment: Insert Room Type
       runOnChange: true
@@ -41,7 +329,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 3
+                  value: 12
               - column:
                   name: name
                   value: 01 phòng ngủ
@@ -51,14 +339,14 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 4
+                  value: 13
               - column:
                   name: name
                   value: 02 phòng ngủ
             schemaName: public
             tableName: room_type
   - changeSet:
-      id: 10020191129-17
+      id: 10020191129-21
       author: tinh
       comment: Insert Season Type
       runOnChange: true
@@ -67,7 +355,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 5
+                  value: 14
               - column:
                   name: name
                   value: Mùa thấp điểm
@@ -77,14 +365,14 @@ databaseChangeLog:
             columns:
               - column:
                   name: id
-                  value: 6
+                  value: 15
               - column:
                   name: name
                   value: Mùa cao điểm
             schemaName: public
             tableName: season_type
   - changeSet:
-      id: 10020191129-18
+      id: 10020191129-22
       author: tinh
       comment: Insert Card Detail
       runOnChange: true
@@ -108,13 +396,13 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 1
+                  value: 10
               - column:
                   name: room_type_id
-                  value: 3
+                  value: 12
               - column:
                   name: season_type_id
-                  value: 5
+                  value: 14
             schemaName: public
             tableName: card_detail
         - insert:
@@ -136,13 +424,13 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 1
+                  value: 10
               - column:
                   name: room_type_id
-                  value: 3
+                  value: 12
               - column:
                   name: season_type_id
-                  value: 6
+                  value: 15
             schemaName: public
             tableName: card_detail
         - insert:
@@ -164,13 +452,13 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 1
+                  value: 10
               - column:
                   name: room_type_id
-                  value: 4
+                  value: 13
               - column:
                   name: season_type_id
-                  value: 5
+                  value: 14
             schemaName: public
             tableName: card_detail
         - insert:
@@ -192,13 +480,13 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 1
+                  value: 10
               - column:
                   name: room_type_id
-                  value: 4
+                  value: 13
               - column:
                   name: season_type_id
-                  value: 6
+                  value: 15
             schemaName: public
             tableName: card_detail
         - insert:
@@ -220,13 +508,13 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 2
+                  value: 11
               - column:
                   name: room_type_id
-                  value: 3
+                  value: 12
               - column:
                   name: season_type_id
-                  value: 5
+                  value: 14
             schemaName: public
             tableName: card_detail
         - insert:
@@ -248,13 +536,13 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 2
+                  value: 11
               - column:
                   name: room_type_id
-                  value: 3
+                  value: 12
               - column:
                   name: season_type_id
-                  value: 6
+                  value: 15
             schemaName: public
             tableName: card_detail
         - insert:
@@ -276,13 +564,13 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 2
+                  value: 11
               - column:
                   name: room_type_id
-                  value: 4
+                  value: 13
               - column:
                   name: season_type_id
-                  value: 5
+                  value: 14
             schemaName: public
             tableName: card_detail
         - insert:
@@ -304,245 +592,245 @@ databaseChangeLog:
                   value: 1100000
               - column:
                   name: card_type_id
-                  value: 2
+                  value: 11
               - column:
                   name: room_type_id
-                  value: 4
+                  value: 13
               - column:
                   name: season_type_id
-                  value: 6
+                  value: 15
             schemaName: public
             tableName: card_detail
-  - changeSet:
-      id: 10020191129-19
-      author: tinh
-      comment: Insert Customer
-      runOnChange: true
-      changes:
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 15
-              - column:
-                  name: name
-                  value: Phạm Trung Tính
-              - column:
-                  name: phone
-                  value: 0972426521
-              - column:
-                  name: address1
-                  value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
-              - column:
-                  name: address2
-                  value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
-            tableName: customer
-            schemaName: public
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 16
-              - column:
-                  name: name
-                  value: Cao Thị Lan
-              - column:
-                  name: phone
-                  value: 0968785313
-              - column:
-                  name: address1
-                  value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
-              - column:
-                  name: address2
-                  value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
-            tableName: customer
-            schemaName: public
-  - changeSet:
-      id: 10020191129-20
-      author: tinh
-      comment: Insert Orders
-      runOnChange: true
-      changes:
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 17
-              - column:
-                  name: date
-                  value: now()
-              - column:
-                  name: status
-                  value: PAYING
-              - column:
-                  name: contract_value
-                  value: 500000000
-              - column:
-                  name: contract_value_vat
-                  value: 550000000
-              - column:
-                  name: discount
-                  value: 7
-              - column:
-                  name: customer_id
-                  value: 15
-              - column:
-                  name: card_detail_id
-                  value: 7
-              - column:
-                  name: sale_id
-                  value: 11
-              - column:
-                  name: sale_admin_id
-                  value: 12
-              - column:
-                  name: sale_manager_id
-                  value: 13
-            schemaName: public
-            tableName: orders
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 18
-              - column:
-                  name: date
-                  value: now()
-              - column:
-                  name: status
-                  value: PAYING
-              - column:
-                  name: contract_value
-                  value: 300000000
-              - column:
-                  name: contract_value_vat
-                  value: 330000000
-              - column:
-                  name: discount
-                  value: 5
-              - column:
-                  name: customer_id
-                  value: 15
-              - column:
-                  name: card_detail_id
-                  value: 8
-              - column:
-                  name: sale_id
-                  value: 11
-              - column:
-                  name: sale_admin_id
-                  value: 12
-              - column:
-                  name: sale_manager_id
-                  value: 13
-            schemaName: public
-            tableName: orders
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 19
-              - column:
-                  name: date
-                  value: now()
-              - column:
-                  name: status
-                  value: PAYING
-              - column:
-                  name: contract_value
-                  value: 400000000
-              - column:
-                  name: contract_value_vat
-                  value: 440000000
-              - column:
-                  name: discount
-                  value: 3
-              - column:
-                  name: customer_id
-                  value: 16
-              - column:
-                  name: card_detail_id
-                  value: 9
-              - column:
-                  name: sale_id
-                  value: 11
-              - column:
-                  name: sale_admin_id
-                  value: 12
-              - column:
-                  name: sale_manager_id
-                  value: 13
-            schemaName: public
-            tableName: orders
-  - changeSet:
-      id: 10020191129-21
-      author: tinh
-      comment: Insert Payment Histories
-      runOnChange: true
-      changes:
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 20
-              - column:
-                  name: date
-                  value: now()
-              - column:
-                  name: value
-                  value: 20000000
-              - column:
-                  name: value_vat
-                  value: 22000000
-              - column:
-                  name: order_id
-                  value: 17
-              - column:
-                  name: type
-                  value: CASH
-            schemaName: public
-            tableName: payment_history
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 21
-              - column:
-                  name: date
-                  value: now()
-              - column:
-                  name: value
-                  value: 50000000
-              - column:
-                  name: value_vat
-                  value: 55000000
-              - column:
-                  name: order_id
-                  value: 17
-              - column:
-                  name: type
-                  value: Credit Card
-            schemaName: public
-            tableName: payment_history
-        - insert:
-            columns:
-              - column:
-                  name: id
-                  value: 22
-              - column:
-                  name: date
-                  value: now()
-              - column:
-                  name: value
-                  value: 30000000
-              - column:
-                  name: value_vat
-                  value: 33000000
-              - column:
-                  name: order_id
-                  value: 18
-              - column:
-                  name: type
-                  value: ATM
-            schemaName: public
-            tableName: payment_history
+#  - changeSet:
+#      id: 10020191129-19
+#      author: tinh
+#      comment: Insert Customer
+#      runOnChange: true
+#      changes:
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 15
+#              - column:
+#                  name: name
+#                  value: Phạm Trung Tính
+#              - column:
+#                  name: phone
+#                  value: 0972426521
+#              - column:
+#                  name: address1
+#                  value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
+#              - column:
+#                  name: address2
+#                  value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
+#            tableName: customer
+#            schemaName: public
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 16
+#              - column:
+#                  name: name
+#                  value: Cao Thị Lan
+#              - column:
+#                  name: phone
+#                  value: 0968785313
+#              - column:
+#                  name: address1
+#                  value: 82-84 ngõ 12 Chính Kinh, Thanh Xuân, Hà Nội
+#              - column:
+#                  name: address2
+#                  value: Ngũ Kiên, Vĩnh Tường, Vĩnh Phúc
+#            tableName: customer
+#            schemaName: public
+#  - changeSet:
+#      id: 10020191129-20
+#      author: tinh
+#      comment: Insert Orders
+#      runOnChange: true
+#      changes:
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 17
+#              - column:
+#                  name: date
+#                  value: now()
+#              - column:
+#                  name: status
+#                  value: PAYING
+#              - column:
+#                  name: contract_value
+#                  value: 500000000
+#              - column:
+#                  name: contract_value_vat
+#                  value: 550000000
+#              - column:
+#                  name: discount
+#                  value: 7
+#              - column:
+#                  name: customer_id
+#                  value: 15
+#              - column:
+#                  name: card_detail_id
+#                  value: 7
+#              - column:
+#                  name: sale_id
+#                  value: 11
+#              - column:
+#                  name: sale_admin_id
+#                  value: 12
+#              - column:
+#                  name: sale_manager_id
+#                  value: 13
+#            schemaName: public
+#            tableName: orders
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 18
+#              - column:
+#                  name: date
+#                  value: now()
+#              - column:
+#                  name: status
+#                  value: PAYING
+#              - column:
+#                  name: contract_value
+#                  value: 300000000
+#              - column:
+#                  name: contract_value_vat
+#                  value: 330000000
+#              - column:
+#                  name: discount
+#                  value: 5
+#              - column:
+#                  name: customer_id
+#                  value: 15
+#              - column:
+#                  name: card_detail_id
+#                  value: 8
+#              - column:
+#                  name: sale_id
+#                  value: 11
+#              - column:
+#                  name: sale_admin_id
+#                  value: 12
+#              - column:
+#                  name: sale_manager_id
+#                  value: 13
+#            schemaName: public
+#            tableName: orders
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 19
+#              - column:
+#                  name: date
+#                  value: now()
+#              - column:
+#                  name: status
+#                  value: PAYING
+#              - column:
+#                  name: contract_value
+#                  value: 400000000
+#              - column:
+#                  name: contract_value_vat
+#                  value: 440000000
+#              - column:
+#                  name: discount
+#                  value: 3
+#              - column:
+#                  name: customer_id
+#                  value: 16
+#              - column:
+#                  name: card_detail_id
+#                  value: 9
+#              - column:
+#                  name: sale_id
+#                  value: 11
+#              - column:
+#                  name: sale_admin_id
+#                  value: 12
+#              - column:
+#                  name: sale_manager_id
+#                  value: 13
+#            schemaName: public
+#            tableName: orders
+#  - changeSet:
+#      id: 10020191129-21
+#      author: tinh
+#      comment: Insert Payment Histories
+#      runOnChange: true
+#      changes:
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 20
+#              - column:
+#                  name: date
+#                  value: now()
+#              - column:
+#                  name: value
+#                  value: 20000000
+#              - column:
+#                  name: value_vat
+#                  value: 22000000
+#              - column:
+#                  name: order_id
+#                  value: 17
+#              - column:
+#                  name: type
+#                  value: CASH
+#            schemaName: public
+#            tableName: payment_history
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 21
+#              - column:
+#                  name: date
+#                  value: now()
+#              - column:
+#                  name: value
+#                  value: 50000000
+#              - column:
+#                  name: value_vat
+#                  value: 55000000
+#              - column:
+#                  name: order_id
+#                  value: 17
+#              - column:
+#                  name: type
+#                  value: Credit Card
+#            schemaName: public
+#            tableName: payment_history
+#        - insert:
+#            columns:
+#              - column:
+#                  name: id
+#                  value: 22
+#              - column:
+#                  name: date
+#                  value: now()
+#              - column:
+#                  name: value
+#                  value: 30000000
+#              - column:
+#                  name: value_vat
+#                  value: 33000000
+#              - column:
+#                  name: order_id
+#                  value: 18
+#              - column:
+#                  name: type
+#                  value: ATM
+#            schemaName: public
+#            tableName: payment_history

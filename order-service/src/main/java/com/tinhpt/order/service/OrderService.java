@@ -1,6 +1,6 @@
 package com.tinhpt.order.service;
 
-import com.tinhpt.common.security.JwtConfig;
+import com.tinhpt.order.config.JwtConfig;
 import com.tinhpt.order.dto.OrderResponse;
 import com.tinhpt.order.dto.SaleResponse;
 import com.tinhpt.order.entities.OrderEntity;
@@ -56,23 +56,23 @@ public class OrderService implements IOrderService {
     private OrderResponse mapEntityToDTO(OrderEntity entity) {
         OrderResponse response = new OrderResponse();
         BeanUtils.copyProperties(entity, response);
-        HttpEntity httpEntity = RestUtils.createHttpHeaderEntity(jwtConfig);
-        if (entity.getTeleSaleId() != null) {
-            SaleResponse teleSale = restTemplate.exchange(HR_EMPLOYEE_API + entity.getTeleSaleId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setTeleSale(teleSale);
-        }
-        if (entity.getSaleId() != null) {
-            SaleResponse sale = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setSale(sale);
-        }
-        if (entity.getSaleAdminId() != null) {
-            SaleResponse saleAdmin = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleAdminId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setSaleAdmin(saleAdmin);
-        }
-        if (entity.getSaleManagerId() != null) {
-            SaleResponse saleManager = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleManagerId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
-            response.setSaleManager(saleManager);
-        }
+//        HttpEntity httpEntity = RestUtils.createHttpHeaderEntity(jwtConfig);
+//        if (entity.getTeleSaleId() != null) {
+//            SaleResponse teleSale = restTemplate.exchange(HR_EMPLOYEE_API + entity.getTeleSaleId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
+//            response.setTeleSale(teleSale);
+//        }
+//        if (entity.getSaleId() != null) {
+//            SaleResponse sale = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
+//            response.setSale(sale);
+//        }
+//        if (entity.getSaleAdminId() != null) {
+//            SaleResponse saleAdmin = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleAdminId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
+//            response.setSaleAdmin(saleAdmin);
+//        }
+//        if (entity.getSaleManagerId() != null) {
+//            SaleResponse saleManager = restTemplate.exchange(HR_EMPLOYEE_API + entity.getSaleManagerId().toString(), HttpMethod.GET, httpEntity, SaleResponse.class).getBody();
+//            response.setSaleManager(saleManager);
+//        }
         response.setCardName(entity.getCardDetail().toString());
         return response;
     }

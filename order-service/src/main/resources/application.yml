@@ -5,7 +5,7 @@ spring:
     driverClassName: org.postgresql.Driver
     username: postgres
     password: postgres
-    url: jdbc:postgresql://localhost:5432/order_history
+    url: jdbc:postgresql://localhost:5432/crystal_holiday
     hikari:
       connectionTimeout: 300000   # 3 minutes
 
@@ -30,9 +30,21 @@ spring:
       port: 35730
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
 server:
   port: 8200
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    com:
+      tinhpt:
+        order:
+          OrderServiceApplication: debug

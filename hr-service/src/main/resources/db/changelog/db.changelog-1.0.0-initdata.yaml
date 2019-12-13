@@ -51,7 +51,7 @@ databaseChangeLog:
               value: 4
           - column:
               name: name
-              value: SALE_MANGER
+              value: SALE_MANAGER
           - column:
               name: job_title
               value: SALE MANAGER

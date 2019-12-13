@@ -1,7 +1,6 @@
 package com.tinhpt.order.utils;
 
-import com.tinhpt.common.security.JwtConfig;
-import com.tinhpt.common.utils.JwtUtils;
+import com.tinhpt.order.config.JwtConfig;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.core.context.SecurityContextHolder;

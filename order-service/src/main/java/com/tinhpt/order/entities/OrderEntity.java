@@ -24,10 +24,18 @@ public class OrderEntity extends AuditEntity {
     @ManyToOne
     private CustomerEntity customer;
 
-    private Long teleSaleId;
-    private Long saleId;
-    private Long saleAdminId;
-    private Long saleManagerId;
+    @ManyToOne
+    private EmployeeEntity teleSale;
+
+    @ManyToOne
+    private EmployeeEntity sale;
+
+    @ManyToOne
+    private EmployeeEntity saleAdmin;
+
+    @ManyToOne
+    private EmployeeEntity saleManager;
+
     private Integer discount;
     private Long contractValue;
     private Long contractValueVat;
