@@ -1,5 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: db/changelog/db.changelog-1.0.0-schema.yaml
-  - include:
-      file: db/changelog/db.changelog-1.0.0-initdata.yaml
