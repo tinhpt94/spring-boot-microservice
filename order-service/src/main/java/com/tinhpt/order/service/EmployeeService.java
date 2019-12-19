@@ -7,7 +7,6 @@ import com.tinhpt.order.entities.RoleEntity;
 import com.tinhpt.order.repository.EmployeeDao;
 import com.tinhpt.order.repository.RoleDao;
 import com.tinhpt.order.utils.AuditHelper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -39,13 +38,13 @@ public class EmployeeService implements IEmployeeService {
     public EmployeeResponse getCurrentUser() {
         String username = AuditHelper.getCurrentAuditor();
         EmployeeEntity employeeEntity = employeeDao.findByUsernameIgnoreCase(username).orElseThrow(() -> new RuntimeException("Cannot find username: " + username));
-        return convertEntityToDetailResponse(employeeEntity);
+        return EntityDTOUtils.mapEmployeeEntityToEmployeeDTO(employeeEntity);
     }
 
     @Override
     public EmployeeResponse findById(Long id) {
         EmployeeEntity employeeEntity = employeeDao.findById(id).orElseThrow(() -> new RuntimeException("Cannot find employee with id=" + id));
-        return convertEntityToDetailResponse(employeeEntity);
+        return EntityDTOUtils.mapEmployeeEntityToEmployeeDTO(employeeEntity);
     }
 
     private EmployeeEntity mapModelToEmployeeEntity(EmployeeCreateRequest createRequest, String imageUrl) {
@@ -59,13 +58,5 @@ public class EmployeeService implements IEmployeeService {
         employeeEntity.setImageUrl(imageUrl);
         employeeEntity.setDob(createRequest.getDob());
         return employeeEntity;
-    }
-
-    private EmployeeResponse convertEntityToDetailResponse(EmployeeEntity employeeEntity) {
-        EmployeeResponse response = new EmployeeResponse();
-        BeanUtils.copyProperties(employeeEntity, response);
-        response.setRole(employeeEntity.getRole().getName());
-        response.setJobTitle(employeeEntity.getRole().getJobTitle());
-        return response;
     }
 }

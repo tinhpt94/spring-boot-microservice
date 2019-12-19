@@ -5,7 +5,6 @@ import com.tinhpt.order.entities.CustomerEntity;
 import com.tinhpt.order.repository.CustomerDao;
 import com.tinhpt.order.repository.OrderDao;
 import com.tinhpt.order.specification.CustomerSpec;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +22,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public List<CustomerResponse> getAllCustomer(CustomerSpec customerSpec) {
-        return customerDao.findAll(customerSpec).stream().map(this::convertEntityToDTO).collect(Collectors.toList());
+        return customerDao.findAll(customerSpec).stream().map(EntityDTOUtils::mapCustomerEntityToDTO).collect(Collectors.toList());
     }
 
     private CustomerEntity findCustomerById(Long id) {
@@ -33,12 +32,8 @@ public class CustomerService implements ICustomerService {
     @Override
     public CustomerResponse findById(Long id) {
         CustomerEntity customerEntity = findCustomerById(id);
-        return convertEntityToDTO(customerEntity);
+        return EntityDTOUtils.mapCustomerEntityToDTO(customerEntity);
     }
 
-    private CustomerResponse convertEntityToDTO(CustomerEntity entity) {
-        CustomerResponse response = new CustomerResponse();
-        BeanUtils.copyProperties(entity, response);
-        return response;
-    }
+
 }
