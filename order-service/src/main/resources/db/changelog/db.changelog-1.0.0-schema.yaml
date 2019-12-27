@@ -451,7 +451,7 @@ databaseChangeLog:
             onDelete: NO ACTION
             onUpdate: NO ACTION
             referencedColumnNames: id
-            referencedTableName: employee
+            referencedTableName: customer
             validate: true
   - changeSet:
       id: 10020191129-12

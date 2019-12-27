@@ -42,7 +42,7 @@ public class FakerService implements IFakerService {
     public void fakeOrderData() {
         for (int i = 0; i < 50; i++) {
             OrderEntity entity = new OrderEntity();
-            entity.setCustomer(customerDao.findById(Long.valueOf(faker.random().nextInt(1000, 1049))).get());
+            entity.setCustomer(customerDao.findById(Long.valueOf(faker.random().nextInt(1200, 1299))).get());
             CardDetailEntity cardDetailEntity = cardDetailDao.findById(Long.valueOf(faker.random().nextInt(7, 14))).get();
             entity.setCardDetail(cardDetailEntity);
             entity.setContractValueVat(cardDetailEntity.getUnitPrice() * cardDetailEntity.getCardType().getQuantity() * 7);
@@ -76,7 +76,7 @@ public class FakerService implements IFakerService {
                             faker.random().nextInt(0, 23),
                             faker.random().nextInt(0, 59))
             );
-            OrderEntity orderEntity = orderDao.findById(Long.valueOf(faker.random().nextInt(1050, 1199))).get();
+            OrderEntity orderEntity = orderDao.findById(Long.valueOf(faker.random().nextInt(1300, 1399))).get();
             Long paymentValue = faker.random().nextLong(orderEntity.getContractValue());
             paymentHistoryEntity.setValue(paymentValue);
             paymentHistoryEntity.setValueVat((long) (paymentValue * 1.1));

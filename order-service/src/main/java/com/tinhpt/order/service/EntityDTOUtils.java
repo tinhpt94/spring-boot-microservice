@@ -8,7 +8,16 @@ class EntityDTOUtils {
     static SaleResponse mapEmployeeEntityToSaleDTO(EmployeeEntity entity) {
         SaleResponse response = new SaleResponse();
         BeanUtils.copyProperties(entity, response);
+        response.setCommissionRate(getCommissionRate(entity.getRole()));
         return response;
+    }
+
+    static Double getCommissionRate(RoleEntity roleEntity) {
+        if (Role.TELE_SALE.toString().equals(roleEntity.getName())) return 1.0;
+        if (Role.SALE.toString().equals(roleEntity.getName())) return 7.0;
+        if (Role.SALE_ADMIN.toString().equals(roleEntity.getName())) return 0.1;
+        if (Role.SALE_MANAGER.toString().equals(roleEntity.getName())) return 4.5;
+        return 0.0;
     }
 
     static EmployeeResponse mapEmployeeEntityToEmployeeDTO(EmployeeEntity entity) {
@@ -62,4 +71,6 @@ class EntityDTOUtils {
         response.setRoomType(roomTypeResponse);
         return response;
     }
+
+
 }
